@@ -48,7 +48,7 @@ To compile and run the web application run:
 
 ## Screens
 
-<img src="screens/unsplash_android.gif" alt="Android version of Unsplash" />
+<img src="screens/unsplash-android.gif" alt="Android version of Unsplash" />
 <img src="screens/unsplash-desktop.gif" alt="Desktop version of Unsplash" />
 <img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
 
