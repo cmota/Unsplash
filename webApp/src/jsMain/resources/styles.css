@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Big Noodle Titling';
+    font-style: normal;
+    src: local('Big Noodle Titling'),
+    local('big_noodle_titling'),
+    url(big_noodle_titling.ttf) format('truetype');
+}
+
+.unsplash-text {
+    font-family: 'Big Noodle Titling';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 100px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
