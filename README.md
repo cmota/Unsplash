@@ -48,8 +48,18 @@ To compile and run the web application run:
 
 ## Screens
 
+### Android
+
 <img src="screens/unsplash-android.gif" alt="Android version of Unsplash" />
+
+
+### Desktop
+
 <img src="screens/unsplash-desktop.gif" alt="Desktop version of Unsplash" />
+
+
+### Web
+
 <img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
 
 [1]:	https://speakerdeck.com/cmota/an-android-a-desktop-and-a-web-developer-enter-in-a-bar
