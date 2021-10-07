@@ -48,9 +48,9 @@ To compile and run the web application run:
 
 ## Screens
 
-<img src="screens/unsplash_android.png" alt="Android version of Unsplash" />
-<img src="screens/unsplash-desktop.png" alt="Desktop version of Unsplash" />
-<img src="screens/unsplash-web.png" alt="Web version of Unsplash" />
+<img src="screens/unsplash_android.gif" alt="Android version of Unsplash" />
+<img src="screens/unsplash-desktop.gif" alt="Desktop version of Unsplash" />
+<img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
 
 [1]:	https://speakerdeck.com/cmota/an-android-a-desktop-and-a-web-developer-enter-in-a-bar
 [2]:	https://github.com/ktorio/ktor
