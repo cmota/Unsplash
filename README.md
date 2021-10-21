@@ -59,7 +59,7 @@ To compile and run the web application run:
 <img src="screens/unsplash-android.gif" alt="Android version of Unsplash" />
 
 
-### Android
+### Android Wear
 
 <img src="screens/unsplash-android-wear.png" alt="Android Wear version of Unsplash" />
 
