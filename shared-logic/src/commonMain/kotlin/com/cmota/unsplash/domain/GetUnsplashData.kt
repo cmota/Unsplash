@@ -1,8 +1,8 @@
-package com.cmota.unsplash.shared.domain
+package com.cmota.unsplash.domain
 
 import com.cmota.unsplash.platform.Logger
-import com.cmota.unsplash.shared.data.UnsplashAPI
-import com.cmota.unsplash.shared.data.model.Image
+import com.cmota.unsplash.data.UnsplashAPI
+import com.cmota.unsplash.data.model.Image
 import kotlinx.coroutines.coroutineScope
 
 private const val TAG = "GetUnsplashData"

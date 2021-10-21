@@ -1,7 +1,7 @@
-package com.cmota.unsplash.shared.data
+package com.cmota.unsplash.data
 
-import com.cmota.unsplash.shared.data.model.Image
-import com.cmota.unsplash.shared.data.model.ImageData
+import com.cmota.unsplash.data.model.Image
+import com.cmota.unsplash.data.model.ImageData
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.json.*

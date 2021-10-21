@@ -1,4 +1,4 @@
-package com.cmota.unsplash.shared.data
+package com.cmota.unsplash.data
 
 import com.cmota.unsplash.platform.Logger
 

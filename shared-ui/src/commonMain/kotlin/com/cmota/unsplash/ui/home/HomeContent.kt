@@ -28,7 +28,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.cmota.unsplash.shared.data.model.Image
+import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.ui.components.AddImagePreview
 import com.cmota.unsplash.ui.theme.*
 import com.cmota.unsplash.ui.TAG

@@ -1,7 +1,7 @@
-package com.cmota.unsplash.shared
+package com.cmota.unsplash
 
-import com.cmota.unsplash.shared.domain.GetUnsplashData
-import com.cmota.unsplash.shared.presentation.UnsplashPresenter
+import com.cmota.unsplash.domain.GetUnsplashData
+import com.cmota.unsplash.presentation.UnsplashPresenter
 
 public object ServiceLocator {
 

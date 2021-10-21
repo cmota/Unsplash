@@ -1,4 +1,4 @@
-package com.cmota.unsplash.shared
+package com.cmota.unsplash
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

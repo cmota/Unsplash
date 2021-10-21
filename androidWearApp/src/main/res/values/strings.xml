@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Unsplash Compose</string>
+
+    <!-- Navigation -->
+    <string name="navigation_home">Home</string>
+    <string name="navigation_about">About</string>
+
+    <!-- About -->
+    <string name="about_text">This is a showcase application built using Jetpack Compose that uses Unsplash API.</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search for a topic</string>
+
+    <!-- Description -->
+    <string name="description_search">Search for a topic</string>
+    <string name="description_preview">Image preview</string>
+    <string name="description_preview_error">Unable to load image preview</string>
+</resources>

@@ -8,6 +8,7 @@ pluginManagement {
 }
 rootProject.name = "Unsplash"
 include(":androidApp")
+include(":androidWearApp")
 include(":desktopApp")
 include(":webApp")
 include(":shared-ui")

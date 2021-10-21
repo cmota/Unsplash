@@ -2,9 +2,9 @@ package com.cmota.unsplash.ui
 
 import androidx.compose.runtime.Composable
 import com.cmota.unsplash.platform.Logger
-import com.cmota.unsplash.shared.ServiceLocator
-import com.cmota.unsplash.shared.data.model.Image
-import com.cmota.unsplash.shared.domain.cb.UnsplashData
+import com.cmota.unsplash.ServiceLocator
+import com.cmota.unsplash.data.model.Image
+import com.cmota.unsplash.domain.cb.UnsplashData
 import com.cmota.unsplash.ui.components.Image
 import com.cmota.unsplash.ui.components.Column
 import org.jetbrains.compose.web.css.*

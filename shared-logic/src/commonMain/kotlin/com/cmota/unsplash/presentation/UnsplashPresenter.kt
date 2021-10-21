@@ -1,9 +1,9 @@
-package com.cmota.unsplash.shared.presentation
+package com.cmota.unsplash.presentation
 
 import com.cmota.unsplash.platform.Logger
-import com.cmota.unsplash.shared.PresenterCoroutineScope
-import com.cmota.unsplash.shared.domain.GetUnsplashData
-import com.cmota.unsplash.shared.domain.cb.UnsplashData
+import com.cmota.unsplash.PresenterCoroutineScope
+import com.cmota.unsplash.domain.GetUnsplashData
+import com.cmota.unsplash.domain.cb.UnsplashData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

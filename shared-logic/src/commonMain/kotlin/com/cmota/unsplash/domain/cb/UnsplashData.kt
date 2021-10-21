@@ -1,6 +1,6 @@
-package com.cmota.unsplash.shared.domain.cb
+package com.cmota.unsplash.domain.cb
 
-import com.cmota.unsplash.shared.data.model.Image
+import com.cmota.unsplash.data.model.Image
 
 public interface UnsplashData {
 

@@ -1,4 +1,4 @@
-package com.cmota.unsplash.shared.data.model
+package com.cmota.unsplash.data.model
 
 import kotlinx.serialization.Serializable
 
