@@ -24,6 +24,12 @@ You're going to need Android Studio (at least Arctic Fox version) with the KMM p
 To compile and install the Android application run:
 
 	./gradlew androidApp:installDebug
+	
+### Android Wear
+
+To compile and install the Android Wear change Kotlin version the **/build.gradle.kts** file to 1.5.21 and run:
+
+	./gradlew androidWearApp:installDebug
 
 ### Desktop
 
@@ -31,7 +37,7 @@ To compile and install the Desktop application run:
 
 	./gradlew desktopApp:run
 
-### Android
+### Web
 
 To compile and run the web application run:
 
@@ -51,6 +57,11 @@ To compile and run the web application run:
 ### Android
 
 <img src="screens/unsplash-android.gif" alt="Android version of Unsplash" />
+
+
+### Android
+
+<img src="screens/unsplash-android-wear.png" alt="Android Wear version of Unsplash" />
 
 
 ### Desktop
