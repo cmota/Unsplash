@@ -5,9 +5,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.0.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.21")
+        classpath("com.android.tools.build:gradle:7.1.3")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.6.10")
     }
 }
 
@@ -16,6 +16,19 @@ allprojects {
         google()
         mavenCentral()
         maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
+    }
+
+    afterEvaluate {
+        project.extensions.findByType<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>()?.let { ext ->
+            ext.sourceSets.removeAll { sourceSet ->
+                setOf(
+                    "androidAndroidTestRelease",
+                    "androidTestFixtures",
+                    "androidTestFixturesDebug",
+                    "androidTestFixturesRelease",
+                ).contains(sourceSet.name)
+            }
+        }
     }
 }
 

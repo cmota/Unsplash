@@ -11,7 +11,10 @@ include(":androidApp")
 include(":androidWearApp")
 include(":desktopApp")
 include(":webApp")
+
 include(":shared-ui")
 include(":shared-logic")
+
 include(":precompose")
-include(":swiperefresh")
+include(":kamel-core")
+include(":kamel-image")

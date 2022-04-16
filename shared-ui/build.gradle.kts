@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
+    id("org.jetbrains.compose") version "1.1.0"
     id("com.android.library")
     kotlin("plugin.serialization")
 }
 
-version = "1.0"
+version = "1.0.1"
 
 kotlin {
     android()
@@ -17,20 +17,18 @@ kotlin {
             dependencies {
                 api(compose.foundation)
                 api(compose.runtime)
-                api(compose.foundation)
                 api(compose.material)
                 api(compose.materialIconsExtended)
                 api(compose.ui)
                 api(compose.uiTooling)
 
-                api("com.alialbaali.kamel:kamel-image:0.2.2")
+                api("ca.gosyer:accompanist-swiperefresh:0.24.4")
 
                 api(project(":shared-logic"))
                 api(project(":precompose"))
-                api(project(":swiperefresh"))
+                api(project(":kamel-image"))
             }
         }
-        val commonTest by getting
         val androidMain by getting
         val desktopMain by getting
     }
@@ -48,4 +46,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }

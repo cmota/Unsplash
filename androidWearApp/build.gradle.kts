@@ -35,7 +35,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.3"
+        kotlinCompilerExtensionVersion = "1.2.0-alpha07"
     }
 
     packagingOptions {
@@ -47,17 +47,21 @@ android {
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.activity:activity-compose:1.4.0")
 
-    implementation("androidx.compose.ui:ui:1.1.0-alpha05")
-    implementation("androidx.compose.material:material:1.1.0-alpha05")
-    implementation("androidx.compose.runtime:runtime-livedata:1.1.0-alpha05")
+    implementation("androidx.compose.ui:ui:1.2.0-alpha07")
+    implementation("androidx.compose.material:material:1.2.0-alpha07")
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-alpha07")
 
-    implementation("androidx.wear.compose:compose-material:1.0.0-alpha08")
-    implementation("androidx.wear.compose:compose-foundation:1.0.0-alpha08")
+    implementation("androidx.wear.compose:compose-material:1.0.0-alpha20")
+    implementation("androidx.wear.compose:compose-foundation:1.0.0-alpha20")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:1.3.2")
+    implementation("io.coil-kt:coil-compose:1.4.0")
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }

@@ -2,7 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
+    id("org.jetbrains.compose") version "1.1.0"
 }
 
 kotlin {
@@ -32,7 +32,27 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "Unsplash"
-            packageVersion = "1.0.0"
+            packageVersion = "1.0.1"
+
+            val resources = project.layout.projectDirectory.dir("src/jvmMain/resources")
+            appResourcesRootDir.set(resources)
+
+            macOS {
+                bundleID = "com.cmota.unsplash"
+                iconFile.set(resources.file("macos-icon.icns"))
+            }
+
+            windows {
+                iconFile.set(resources.file("windows-icon.ico"))
+            }
+
+            linux {
+                iconFile.set(resources.file("linux-icon.png"))
+            }
         }
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }

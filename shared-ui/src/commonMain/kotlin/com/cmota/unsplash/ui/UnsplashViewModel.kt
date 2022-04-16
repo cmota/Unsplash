@@ -36,11 +36,8 @@ class UnsplashViewModel : ViewModel(), UnsplashData {
     override fun onNewDataAvailable(items: List<Image>, e: Exception?) {
         Logger.d(TAG, "onNewDataAvailable | items=${items.size}")
         viewModelScope.launch {
-            withContext(Dispatchers.Main) {
-                Logger.d(TAG, "onNewDataAvailable | updated | images.hasObserver()=${images.hasObserver()}")
-                images.value.let {
-                    images.value = items.toMutableList()
-                }
+            images.value.let {
+                images.value = items.toMutableList()
             }
         }
     }

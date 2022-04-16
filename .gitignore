@@ -13,15 +13,14 @@ captures
 
 .cxx
 
-local.properties
-
 androidApp/build
+androidWearApp/build
 desktopApp/build
 webApp/build
 
+kamel-core/build
+kamel-image/build
+precompose/build
+
 shared-logic/build
 shared-ui/build
-
-precompose/build
-swiperefresh/build
-

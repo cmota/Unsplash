@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
+    id("org.jetbrains.compose") version "1.1.0"
 }
 
 kotlin {
@@ -29,4 +29,8 @@ afterEvaluate {
     rootProject.extensions.configure<NodeJsRootExtension> {
         versions.webpackDevServer.version = "4.0.0"
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }

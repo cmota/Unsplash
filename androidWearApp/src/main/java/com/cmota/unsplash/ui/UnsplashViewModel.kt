@@ -8,9 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.ServiceLocator
 import com.cmota.unsplash.domain.cb.UnsplashData
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 private const val TAG = "UnsplashViewModel"
 
@@ -39,9 +37,7 @@ class UnsplashViewModel : ViewModel(), UnsplashData {
     override fun onNewDataAvailable(items: List<Image>, e: Exception?) {
         Log.d(TAG, "onNewDataAvailable | items=${items.size}")
         viewModelScope.launch {
-            withContext(Dispatchers.Main) {
-                _images.value = items
-            }
+            _images.value = items
         }
     }
 

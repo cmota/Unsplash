@@ -4,7 +4,7 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-version = "1.0"
+version = "1.0.1"
 
 kotlin {
     android()
@@ -20,25 +20,29 @@ kotlin {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:1.6.4")
-                implementation("io.ktor:ktor-client-serialization:1.6.4")
-                implementation("io.ktor:ktor-client-logging:1.6.4")
+                implementation("io.ktor:ktor-client-core:2.0.0")
+                implementation("io.ktor:ktor-client-serialization:2.0.0")
+                implementation("io.ktor:ktor-client-content-negotiation:2.0.0")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.0")
+                implementation("io.ktor:ktor-client-logging:2.0.0")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
-
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:1.6.4")
+                implementation("io.ktor:ktor-client-android:2.0.0")
             }
         }
-        val desktopMain by getting
+        val desktopMain by getting {
+            dependsOn(commonMain)
+        }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:1.6.4")
+                implementation("io.ktor:ktor-client-js:2.0.0")
             }
         }
     }
@@ -55,4 +59,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }
