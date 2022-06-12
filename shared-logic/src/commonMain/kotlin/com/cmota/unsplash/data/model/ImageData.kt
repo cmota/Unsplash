@@ -1,6 +1,5 @@
 package com.cmota.unsplash.data.model
 
-import com.cmota.unsplash.data.model.Image
 import kotlinx.serialization.Serializable
 
 @Serializable

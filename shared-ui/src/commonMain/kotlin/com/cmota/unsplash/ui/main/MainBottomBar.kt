@@ -16,7 +16,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.cmota.unsplash.ui.theme.*
+import com.cmota.unsplash.ui.theme.Fonts
+import com.cmota.unsplash.ui.theme.colorAccent
+import com.cmota.unsplash.ui.theme.colorAccent25Transparency
+import com.cmota.unsplash.ui.theme.colorContent
+import com.cmota.unsplash.ui.theme.colorPrimary
+import com.cmota.unsplash.ui.theme.icAbout
+import com.cmota.unsplash.ui.theme.icHome
 import moe.tlaster.precompose.navigation.Navigator
 
 private lateinit var selectedIndex: MutableState<Int>

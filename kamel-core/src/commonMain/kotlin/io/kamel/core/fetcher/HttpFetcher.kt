@@ -4,7 +4,6 @@ import io.kamel.core.DataSource
 import io.kamel.core.Resource
 import io.kamel.core.config.ResourceConfig
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
 import io.ktor.client.plugins.onDownload
 import io.ktor.client.request.request
 import io.ktor.client.request.takeFrom

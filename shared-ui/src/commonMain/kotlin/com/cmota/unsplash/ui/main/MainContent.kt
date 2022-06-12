@@ -7,11 +7,10 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cmota.unsplash.ui.UnsplashViewModel
-import com.cmota.unsplash.ui.home.HomeContent
 import com.cmota.unsplash.ui.about.AboutContent
+import com.cmota.unsplash.ui.home.HomeContent
 import com.cmota.unsplash.ui.theme.BottomNavigationHeight
 import com.cmota.unsplash.ui.theme.colorContent
-
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.route.scene

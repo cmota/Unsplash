@@ -1,15 +1,30 @@
 package com.cmota.unsplash.ui
 
 import androidx.compose.runtime.Composable
-import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ServiceLocator
 import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.domain.cb.UnsplashData
-import com.cmota.unsplash.ui.components.Image
+import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ui.components.Column
+import com.cmota.unsplash.ui.components.Image
 import org.jetbrains.compose.common.ui.ExperimentalComposeWebWidgetsApi
-import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.*
+import org.jetbrains.compose.web.css.Color
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.bottom
+import org.jetbrains.compose.web.css.color
+import org.jetbrains.compose.web.css.flexGrow
+import org.jetbrains.compose.web.css.fontFamily
+import org.jetbrains.compose.web.css.fontSize
+import org.jetbrains.compose.web.css.height
+import org.jetbrains.compose.web.css.left
+import org.jetbrains.compose.web.css.marginBottom
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.position
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.width
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.renderComposable
 
 private const val TAG = "Main"

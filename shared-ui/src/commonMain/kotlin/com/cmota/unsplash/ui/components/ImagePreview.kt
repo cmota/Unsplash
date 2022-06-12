@@ -1,6 +1,5 @@
 package com.cmota.unsplash.ui.components
 
-import com.cmota.unsplash.platform.Logger
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ui.theme.icLauncher
 import io.kamel.core.Resource
 import io.kamel.image.KamelImage

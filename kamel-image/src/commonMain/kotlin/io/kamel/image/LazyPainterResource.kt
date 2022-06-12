@@ -5,14 +5,12 @@ import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalDensity
 import io.kamel.core.*
 import io.kamel.core.config.ResourceConfig
 import io.kamel.core.config.ResourceConfigBuilder
 import io.kamel.image.config.LocalKamelConfig
 import io.ktor.http.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 

@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.ServiceLocator
+import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.domain.cb.UnsplashData
 import kotlinx.coroutines.launch
 

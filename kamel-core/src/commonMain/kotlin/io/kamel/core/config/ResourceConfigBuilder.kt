@@ -4,9 +4,9 @@ import androidx.compose.ui.unit.Density
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.HttpRequestData
 import io.ktor.client.request.takeFrom
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlin.coroutines.CoroutineContext
 
 public class ResourceConfigBuilder {
 

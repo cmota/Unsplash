@@ -1,12 +1,10 @@
 package com.cmota.unsplash.ui
 
-import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ServiceLocator
 import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.domain.cb.UnsplashData
-import kotlinx.coroutines.Dispatchers
+import com.cmota.unsplash.platform.Logger
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import moe.tlaster.precompose.livedata.LiveData
 import moe.tlaster.precompose.viewmodel.ViewModel
 import moe.tlaster.precompose.viewmodel.viewModelScope

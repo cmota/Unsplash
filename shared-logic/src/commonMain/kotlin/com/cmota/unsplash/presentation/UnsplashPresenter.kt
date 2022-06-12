@@ -1,11 +1,10 @@
 package com.cmota.unsplash.presentation
 
-import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.PresenterCoroutineScope
 import com.cmota.unsplash.domain.GetUnsplashData
 import com.cmota.unsplash.domain.cb.UnsplashData
+import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.platform.ioDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private const val TAG = "UnsplashPresenter"

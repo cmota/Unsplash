@@ -1,9 +1,16 @@
 package com.cmota.unsplash.ui.home
 
-import com.cmota.unsplash.platform.Logger
-import androidx.compose.foundation.background
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -29,12 +36,20 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cmota.unsplash.data.model.Image
-import com.cmota.unsplash.ui.components.AddImagePreview
-import com.cmota.unsplash.ui.theme.*
+import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ui.TAG
 import com.cmota.unsplash.ui.UnsplashViewModel
+import com.cmota.unsplash.ui.components.AddImagePreview
 import com.cmota.unsplash.ui.platform.VerticalScrollbar
 import com.cmota.unsplash.ui.platform.rememberScrollbarAdapter
+import com.cmota.unsplash.ui.theme.Fonts
+import com.cmota.unsplash.ui.theme.colorAccent
+import com.cmota.unsplash.ui.theme.colorContent
+import com.cmota.unsplash.ui.theme.colorContent20Transparency
+import com.cmota.unsplash.ui.theme.colorContent85Transparency
+import com.cmota.unsplash.ui.theme.colorContentSecondary
+import com.cmota.unsplash.ui.theme.colorPrimary
+import com.cmota.unsplash.ui.theme.icSearch
 import moe.tlaster.precompose.ui.observeAsState
 
 @Composable

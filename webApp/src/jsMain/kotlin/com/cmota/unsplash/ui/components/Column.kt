@@ -1,9 +1,12 @@
 package com.cmota.unsplash.ui.components
 
 import androidx.compose.runtime.Composable
+import org.jetbrains.compose.web.css.AlignItems
+import org.jetbrains.compose.web.css.DisplayStyle
+import org.jetbrains.compose.web.css.alignItems
+import org.jetbrains.compose.web.css.display
+import org.jetbrains.compose.web.css.flexGrow
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.common.ui.Modifier
-import org.jetbrains.compose.web.css.*
 
 @Composable
 fun Column(content: @Composable () -> Unit) {
