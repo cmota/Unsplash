@@ -44,11 +44,6 @@ public inline fun lazyPainterResource(
 
   val painterFlow = when (data.toString().substringAfterLast(".")) {
     "svg" -> kamelConfig.loadSvgResource(data, resourceConfig)
-    "xml" -> kamelConfig.loadImageVectorResource(data, resourceConfig).map { resource ->
-      resource.map { imageVector ->
-        rememberVectorPainter(imageVector)
-      }
-    }
     else -> kamelConfig.loadImageBitmapResource(data, resourceConfig).map { resource ->
       resource.map { imageBitmap ->
         BitmapPainter(imageBitmap, filterQuality = filterQuality)

@@ -1,8 +1,8 @@
 package com.cmota.unsplash
 
-import androidx.compose.desktop.DesktopTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.application
@@ -23,7 +23,7 @@ fun main() {
             title = "Unsplash"
         ) {
             Surface(modifier = Modifier.fillMaxSize()) {
-                DesktopTheme {
+                CompositionLocalProvider {
                     val unsplashViewModel = viewModel {
                         UnsplashViewModel()
                     }

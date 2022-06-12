@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
 
     defaultConfig {
         applicationId = "com.cmota.unsplash"
         minSdk = 25
-        targetSdk = 31
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
 
@@ -26,8 +26,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     buildFeatures {
@@ -35,7 +35,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-alpha07"
+        kotlinCompilerExtensionVersion = "1.2.0-beta03"
     }
 
     packagingOptions {
@@ -43,23 +43,24 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    namespace = "com.cmota.unsplash"
 }
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.5.0")
+    implementation("com.google.android.material:material:1.6.1")
     implementation("androidx.activity:activity-compose:1.4.0")
 
-    implementation("androidx.compose.ui:ui:1.2.0-alpha07")
-    implementation("androidx.compose.material:material:1.2.0-alpha07")
-    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-alpha07")
+    implementation("androidx.compose.ui:ui:1.2.0-beta03")
+    implementation("androidx.compose.material:material:1.2.0-beta03")
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-beta03")
 
-    implementation("androidx.wear.compose:compose-material:1.0.0-alpha20")
-    implementation("androidx.wear.compose:compose-foundation:1.0.0-alpha20")
+    implementation("androidx.wear.compose:compose-material:1.0.0-beta03")
+    implementation("androidx.wear.compose:compose-foundation:1.0.0-beta03")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:1.4.0")
+    implementation("io.coil-kt:coil-compose:2.1.0")
 }
 
 kotlin.sourceSets.all {

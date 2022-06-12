@@ -4,7 +4,7 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-version = "1.0.1"
+version = "1.0.2"
 
 kotlin {
     android()
@@ -20,11 +20,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:2.0.0")
-                implementation("io.ktor:ktor-client-serialization:2.0.0")
-                implementation("io.ktor:ktor-client-content-negotiation:2.0.0")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.0")
-                implementation("io.ktor:ktor-client-logging:2.0.0")
+                implementation("io.ktor:ktor-client-core:2.0.2")
+                implementation("io.ktor:ktor-client-serialization:2.0.2")
+                implementation("io.ktor:ktor-client-content-negotiation:2.0.2")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.2")
+                implementation("io.ktor:ktor-client-logging:2.0.2")
 
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
@@ -34,7 +34,8 @@ kotlin {
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.0.0")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+                implementation("io.ktor:ktor-client-android:2.0.2")
             }
         }
         val desktopMain by getting {
@@ -49,16 +50,17 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
         targetSdk = 31
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    namespace = "com.cmota.unsplash.logic"
 }
 
 kotlin.sourceSets.all {

@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.1.0"
+    id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
     id("com.android.library")
     kotlin("plugin.serialization")
 }
 
-version = "1.0.1"
+version = "1.0.2"
 
 kotlin {
     android()
@@ -22,6 +22,8 @@ kotlin {
                 api(compose.ui)
                 api(compose.uiTooling)
 
+                api("com.google.android.material:material:1.6.1")
+
                 api("ca.gosyer:accompanist-swiperefresh:0.24.4")
 
                 api(project(":shared-logic"))
@@ -35,17 +37,18 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
-        minSdk = 21
-        targetSdk = 31
+        minSdk = 23
+        targetSdk = 32
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    namespace = "com.cmota.unsplash.ui"
 }
 
 kotlin.sourceSets.all {

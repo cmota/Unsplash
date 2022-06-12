@@ -2,7 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.1.0"
+    id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
 }
 
 kotlin {
@@ -32,7 +32,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "Unsplash"
-            packageVersion = "1.0.1"
+            packageVersion = "1.0.2"
 
             val resources = project.layout.projectDirectory.dir("src/jvmMain/resources")
             appResourcesRootDir.set(resources)

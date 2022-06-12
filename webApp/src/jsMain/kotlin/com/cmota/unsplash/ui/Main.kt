@@ -7,6 +7,7 @@ import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.domain.cb.UnsplashData
 import com.cmota.unsplash.ui.components.Image
 import com.cmota.unsplash.ui.components.Column
+import org.jetbrains.compose.common.ui.ExperimentalComposeWebWidgetsApi
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
@@ -32,6 +33,7 @@ fun main() {
     })
 }
 
+@OptIn(ExperimentalComposeWebWidgetsApi::class)
 @Composable
 fun AddUnsplashImage(image: Image) {
 

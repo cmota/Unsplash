@@ -14,13 +14,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.ImagePainter
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.cmota.unsplash.R
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun AddImagePreview(
     url: String,
@@ -32,29 +30,25 @@ fun AddImagePreview(
         .crossfade(true)
         .build()
 
-    val painter = rememberImagePainter(
-        request = request
-    )
+    val painter = rememberAsyncImagePainter(request)
 
-    Box {
+    when (painter.state) {
+        is AsyncImagePainter.State.Empty,
+        is AsyncImagePainter.State.Loading -> {
+            val description = stringResource(id =R.string.description_preview)
 
-        Image(
-            painter = painter,
-            contentScale = ContentScale.Crop,
-            contentDescription = stringResource(id = R.string.description_preview),
-            modifier = modifier
-        )
-
-        when (painter.state) {
-            is ImagePainter.State.Loading -> {
-                AddImagePreviewEmpty(modifier)
-            }
-            is ImagePainter.State.Error -> {
-                AddImagePreviewEmpty(modifier)
-            }
-            else -> {
-                // Do nothing
-            }
+            Image(
+                painter = painter,
+                contentDescription = description,
+                contentScale = ContentScale.Crop,
+                modifier = modifier,
+            )
+        }
+        is AsyncImagePainter.State.Error -> {
+            AddImagePreviewEmpty(modifier)
+        }
+        else -> {
+            // Do nothing
         }
     }
 }

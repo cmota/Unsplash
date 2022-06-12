@@ -8,8 +8,8 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
 import moe.tlaster.precompose.navigation.transition.AnimatedRoute
 import moe.tlaster.precompose.navigation.transition.NavTransition
@@ -31,6 +31,7 @@ import moe.tlaster.precompose.ui.LocalViewModelStoreOwner
  * @param navTransition navigation transition for the scenes in this [NavHost]
  * @param builder the builder used to construct the graph
  */
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun NavHost(
     navigator: Navigator,
@@ -98,7 +99,7 @@ fun NavHost(
                                     .pointerInput(Unit) {
                                         forEachGesture {
                                             awaitPointerEventScope {
-                                                awaitPointerEvent().changes.forEach { it.consumeAllChanges() }
+                                                awaitPointerEvent().changes.forEach { it.consume() }
                                             }
                                         }
                                     }

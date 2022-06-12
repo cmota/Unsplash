@@ -2,24 +2,22 @@ import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 
 plugins {
   kotlin("multiplatform")
-  id("org.jetbrains.compose") version "1.1.0"
+  id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
   id("com.android.library")
-  id("maven-publish")
-  id("signing")
 }
 
 android {
-  compileSdk = 31
+  compileSdk = 32
 
   defaultConfig {
-    minSdk = 21
+    minSdk = 23
     targetSdk = 31
     multiDexEnabled = true
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
 
   testOptions {
@@ -34,8 +32,9 @@ android {
       res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     }
   }
+    namespace = "io.kamel.image"
 
-  configurations {
+    configurations {
     create("androidTestApi")
     create("androidTestDebugApi")
     create("androidTestReleaseApi")
@@ -90,6 +89,5 @@ kotlin {
         }
       }
     }
-
   }
 }

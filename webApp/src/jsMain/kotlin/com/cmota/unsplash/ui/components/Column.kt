@@ -6,7 +6,7 @@ import org.jetbrains.compose.common.ui.Modifier
 import org.jetbrains.compose.web.css.*
 
 @Composable
-fun Column(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+fun Column(content: @Composable () -> Unit) {
     Div({
         style {
             display(DisplayStyle.Flex)
