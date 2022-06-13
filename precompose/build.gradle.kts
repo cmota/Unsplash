@@ -12,33 +12,40 @@ version = "0.2.2"
 kotlin {
     android()
 
-    jvm("desktop")
+    jvm()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(compose.foundation)
-
+                api(compose.animation)
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
-
-                api("io.ktor:ktor-client-core:2.0.2")
+                implementation("com.benasher44:uuid:0.4.0")
             }
         }
-
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
         val androidMain by getting {
             dependencies {
-                api("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01")
-                api("androidx.savedstate:savedstate-ktx:1.1.0")
-
-                api("io.ktor:ktor-client-android:2.0.2")
+                api("androidx.activity:activity-ktx:1.4.0")
             }
         }
-
-        val desktopMain by getting {
+        val androidTest by getting {
             dependencies {
-                api(compose.runtime)
-                api(compose.ui)
-                api(compose.desktop.currentOs)
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.13.2")
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit5"))
+                implementation("org.junit.jupiter:junit-jupiter-api:5.8.0")
+                runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.0")
             }
         }
     }

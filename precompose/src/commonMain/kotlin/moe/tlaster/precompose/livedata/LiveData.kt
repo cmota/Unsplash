@@ -5,7 +5,7 @@ import moe.tlaster.precompose.lifecycle.LifecycleObserver
 import moe.tlaster.precompose.lifecycle.LifecycleOwner
 import moe.tlaster.precompose.standard.copyForEach
 
-open class LiveData<T>(initialValue: T) {
+class LiveData<T>(initialValue: T) {
     private val observers = linkedMapOf<Observer<T>, ObserverWrapper>()
     var value: T = initialValue
         set(value) {
@@ -97,7 +97,6 @@ open class LiveData<T>(initialValue: T) {
         observer: Observer<T>,
     ) : ObserverWrapper(observer) {
         override fun onStateChanged(state: Lifecycle.State) {
-
             val currentState = owner.lifecycle.currentState
             if (currentState == Lifecycle.State.Destroyed) {
                 removeObserver(observer)

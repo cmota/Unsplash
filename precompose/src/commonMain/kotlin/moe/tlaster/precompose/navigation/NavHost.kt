@@ -1,21 +1,25 @@
 package moe.tlaster.precompose.navigation
 
-import androidx.compose.foundation.gestures.forEachGesture
-import androidx.compose.foundation.layout.Box
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.with
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.SaveableStateHolder
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.pointerInput
-import moe.tlaster.precompose.navigation.transition.AnimatedRoute
+import com.benasher44.uuid.uuid4
 import moe.tlaster.precompose.navigation.transition.NavTransition
 import moe.tlaster.precompose.ui.LocalBackDispatcherOwner
 import moe.tlaster.precompose.ui.LocalLifecycleOwner
 import moe.tlaster.precompose.ui.LocalViewModelStoreOwner
+import moe.tlaster.precompose.viewmodel.getViewModel
 
 /**
  * Provides in place in the Compose hierarchy for self contained navigation to occur.
@@ -31,28 +35,33 @@ import moe.tlaster.precompose.ui.LocalViewModelStoreOwner
  * @param navTransition navigation transition for the scenes in this [NavHost]
  * @param builder the builder used to construct the graph
  */
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun NavHost(
+    modifier: Modifier = Modifier,
     navigator: Navigator,
     initialRoute: String,
     navTransition: NavTransition = remember { NavTransition() },
     builder: RouteBuilder.() -> Unit,
 ) {
-    val stateHolder = rememberSaveableStateHolder()
-    val manager = remember {
-        val graph = RouteBuilder(initialRoute = initialRoute).apply(builder).build()
-        RouteStackManager(stateHolder, graph).apply {
-            navigator.stackManager = this
-        }
-    }
-
     val lifecycleOwner = checkNotNull(LocalLifecycleOwner.current) {
         "NavHost requires a LifecycleOwner to be provided via LocalLifecycleOwner"
     }
     val viewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
         "NavHost requires a ViewModelStoreOwner to be provided via LocalViewModelStoreOwner"
     }
+    val id by rememberSaveable { mutableStateOf(uuid4().toString()) }
+
+    val stateHolder = rememberSaveableStateHolder()
+
+    val manager = viewModelStoreOwner.viewModelStore.getViewModel(id, NavHostViewModel::class) {
+        val graph = RouteBuilder(initialRoute = initialRoute).apply(builder).build()
+        val manager = RouteStackManager(stateHolder, graph).apply {
+            navigator.stackManager = this
+        }
+        NavHostViewModel(manager)
+    }.manager
+
     val backDispatcher = LocalBackDispatcherOwner.current?.backDispatcher
     DisposableEffect(manager, lifecycleOwner, viewModelStoreOwner, backDispatcher) {
         manager.lifeCycleOwner = lifecycleOwner
@@ -64,14 +73,23 @@ fun NavHost(
     }
 
     LaunchedEffect(manager, initialRoute) {
-        manager.navigate(initialRoute)
+        manager.navigateInitial(initialRoute)
     }
     val currentStack = manager.currentStack
     if (currentStack != null) {
-        AnimatedRoute(
+        AnimatedContent(
             currentStack,
-            navTransition = navTransition,
-            manager = manager,
+            modifier = modifier,
+            transitionSpec = {
+                val actualTransaction =
+                    run { if (manager.contains(initialState)) targetState else initialState }.navTransition
+                        ?: navTransition
+                if (!manager.contains(initialState)) {
+                    actualTransaction.resumeTransition with actualTransaction.destroyTransition
+                } else {
+                    actualTransaction.createTransition with actualTransaction.pauseTransition
+                }
+            }
         ) { routeStack ->
             LaunchedEffect(routeStack) {
                 routeStack.onActive()
@@ -81,35 +99,35 @@ fun NavHost(
                     routeStack.onInActive()
                 }
             }
-            CompositionLocalProvider(
-                LocalLifecycleOwner provides routeStack,
-            ) {
-                stateHolder.SaveableStateProvider(routeStack.id) {
-                    CompositionLocalProvider(
-                        LocalViewModelStoreOwner provides routeStack.scene
-                    ) {
-                        routeStack.scene.route.content.invoke(routeStack.scene)
-                    }
-                    routeStack.dialogStack.forEach { backStackEntry ->
-                        CompositionLocalProvider(
-                            LocalViewModelStoreOwner provides backStackEntry
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .pointerInput(Unit) {
-                                        forEachGesture {
-                                            awaitPointerEventScope {
-                                                awaitPointerEvent().changes.forEach { it.consume() }
-                                            }
-                                        }
-                                    }
-                            ) {
-                                backStackEntry.route.content.invoke(backStackEntry)
-                            }
-                        }
+            val currentEntry = routeStack.currentEntry
+            if (currentEntry != null) {
+                LaunchedEffect(currentEntry) {
+                    currentEntry.active()
+                }
+                DisposableEffect(currentEntry) {
+                    onDispose {
+                        currentEntry.inActive()
                     }
                 }
+                routeStack.stacks.forEach {
+                    NavHostContent(stateHolder, it)
+                }
             }
+        }
+    }
+}
+
+@Composable
+private fun NavHostContent(
+    stateHolder: SaveableStateHolder,
+    it: BackStackEntry
+) {
+    stateHolder.SaveableStateProvider(it.id) {
+        CompositionLocalProvider(
+            LocalViewModelStoreOwner provides it,
+            LocalLifecycleOwner provides it,
+        ) {
+            it.route.content.invoke(it)
         }
     }
 }
