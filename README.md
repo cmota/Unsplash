@@ -27,7 +27,7 @@ To compile and install the Android application run:
 	
 ### Android Wear
 
-To compile and install the Android Wear change Kotlin version the **/build.gradle.kts** file to 1.5.21 and run:
+To compile and install the Android Wear application run::
 
 	./gradlew androidWearApp:installDebug
 
@@ -61,7 +61,7 @@ To compile and run the web application run:
 
 ### Android Wear
 
-<img src="screens/unsplash-android-wear.png" alt="Android Wear version of Unsplash" />
+<img src="screens/unsplash-android-wear.gif" alt="Android Wear version of Unsplash" />
 
 
 ### Desktop

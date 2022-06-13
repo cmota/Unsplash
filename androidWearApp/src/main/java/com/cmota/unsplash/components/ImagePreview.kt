@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
@@ -36,11 +37,11 @@ fun AddImagePreview(
         is AsyncImagePainter.State.Loading -> {
             val description = stringResource(id =R.string.description_preview)
 
-            Image(
-                painter = painter,
+            AsyncImage(
+                model = request,
                 contentDescription = description,
                 contentScale = ContentScale.Crop,
-                modifier = modifier,
+                modifier = modifier
             )
         }
         is AsyncImagePainter.State.Error -> {
