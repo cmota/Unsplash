@@ -40,7 +40,13 @@ kotlin {
                 implementation("junit:junit:4.13.2")
             }
         }
-        val jvmMain by getting
+        val jvmMain by getting {
+            dependencies {
+                dependsOn(commonMain)
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.1")
+            }
+        }
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-junit5"))

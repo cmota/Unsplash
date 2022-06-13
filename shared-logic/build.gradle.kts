@@ -34,16 +34,17 @@ kotlin {
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
                 implementation("io.ktor:ktor-client-android:2.0.2")
             }
         }
         val desktopMain by getting {
-            dependsOn(commonMain)
+            dependencies {
+                implementation("io.ktor:ktor-client-cio:2.0.2")
+            }
         }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.0.0")
+                implementation("io.ktor:ktor-client-js:2.0.2")
             }
         }
     }
