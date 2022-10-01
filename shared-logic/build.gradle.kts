@@ -16,6 +16,16 @@ kotlin {
         binaries.executable()
     }
 
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "SharedKit"
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -46,6 +56,20 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-js:2.1.2")
             }
+        }
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:2.1.2")
+            }
+
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 }
