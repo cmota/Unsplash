@@ -15,6 +15,5 @@ include(":webApp")
 include(":shared-ui")
 include(":shared-logic")
 
-include(":precompose")
 include(":kamel-core")
 include(":kamel-image")

@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 
 plugins {
   kotlin("multiplatform")
-  id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
+  id("org.jetbrains.compose") version "1.2.0-beta02"
 }
 
 kotlin {
@@ -19,14 +19,14 @@ kotlin {
         api(compose.ui)
         api(compose.foundation)
         api(compose.runtime)
-        api("io.ktor:ktor-client-core:2.0.2")
-        api("io.ktor:ktor-client-logging:2.0.2")
+        api("io.ktor:ktor-client-core:2.1.2")
+        api("io.ktor:ktor-client-logging:2.1.2")
       }
     }
 
     val jvmMain by getting {
       dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
+        implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
       }
     }
   }

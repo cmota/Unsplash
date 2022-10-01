@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
+    id("org.jetbrains.compose") version "1.2.0-beta02"
 }
 
 kotlin {
@@ -16,7 +16,6 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation(compose.web.core)
-                implementation(compose.web.widgets)
                 implementation(compose.runtime)
 
                 implementation(project(":shared-logic"))

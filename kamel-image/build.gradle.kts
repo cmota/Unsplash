@@ -2,16 +2,16 @@ import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 
 plugins {
   kotlin("multiplatform")
-  id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
+  id("org.jetbrains.compose") version "1.2.0-beta02"
   id("com.android.library")
 }
 
 android {
-  compileSdk = 32
+  compileSdk = 33
 
   defaultConfig {
     minSdk = 23
-    targetSdk = 31
+    targetSdk = 33
     multiDexEnabled = true
   }
 
@@ -64,15 +64,15 @@ kotlin {
 
     val desktopMain by getting {
       dependencies {
-        implementation("io.ktor:ktor-client-cio:2.0.2")
+        implementation("io.ktor:ktor-client-cio:2.1.2")
       }
     }
 
     val androidMain by getting {
       dependencies {
-        implementation("io.ktor:ktor-client-android:2.0.2")
-        implementation("androidx.appcompat:appcompat:1.4.2")
-        implementation("androidx.core:core-ktx:1.8.0")
+        implementation("io.ktor:ktor-client-android:2.1.2")
+        implementation("androidx.appcompat:appcompat:1.5.1")
+        implementation("androidx.core:core-ktx:1.9.0")
       }
     }
 

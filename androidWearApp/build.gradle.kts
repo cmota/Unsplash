@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.cmota.unsplash"
         minSdk = 25
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -35,7 +35,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-beta03"
+        kotlinCompilerExtensionVersion = "1.3.1"
     }
 
     packagingOptions {
@@ -49,18 +49,18 @@ android {
 dependencies {
 
     implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.activity:activity-compose:1.6.0")
 
-    implementation("androidx.compose.ui:ui:1.2.0-beta03")
-    implementation("androidx.compose.material:material:1.2.0-beta03")
-    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-beta03")
+    implementation("androidx.compose.ui:ui:1.3.0-beta03")
+    implementation("androidx.compose.material:material:1.3.0-beta03")
+    implementation("androidx.compose.runtime:runtime-livedata:1.3.0-beta03")
 
-    implementation("androidx.wear.compose:compose-material:1.0.0-beta03")
-    implementation("androidx.wear.compose:compose-foundation:1.0.0-beta03")
+    implementation("androidx.wear.compose:compose-material:1.1.0-alpha06")
+    implementation("androidx.wear.compose:compose-foundation:1.1.0-alpha06")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:2.1.0")
+    implementation("io.coil-kt:coil-compose:2.2.1")
 }
 
 kotlin.sourceSets.all {

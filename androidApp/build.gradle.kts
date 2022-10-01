@@ -1,16 +1,16 @@
 plugins {
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
+    id("org.jetbrains.compose") version "1.2.0-beta02"
     id("com.android.application")
     kotlin("android")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.cmota.unsplash"
         minSdk = 23
-        targetSdk = 31
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -36,7 +36,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-beta03"
+        kotlinCompilerExtensionVersion = "1.3.1"
     }
 
     packagingOptions {
@@ -50,11 +50,11 @@ android {
 dependencies {
 
     implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.activity:activity-compose:1.6.0")
 
     implementation(project(":shared-ui"))
-    implementation(project(":precompose"))
 
+    implementation("moe.tlaster:precompose:1.3.8")
 
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

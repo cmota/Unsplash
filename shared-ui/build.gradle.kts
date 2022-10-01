@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev707"
+    id("org.jetbrains.compose") version "1.2.0-beta02"
     id("com.android.library")
     kotlin("plugin.serialization")
 }
 
-version = "1.0.2"
+version = "1.0.3"
 
 kotlin {
     android()
@@ -24,10 +24,10 @@ kotlin {
 
                 api("com.google.android.material:material:1.6.1")
 
-                api("ca.gosyer:accompanist-swiperefresh:0.24.4")
+                api("ca.gosyer:accompanist-swiperefresh:0.25.2")
+                api("moe.tlaster:precompose:1.3.8")
 
                 api(project(":shared-logic"))
-                api(project(":precompose"))
                 api(project(":kamel-image"))
             }
         }
@@ -37,12 +37,12 @@ kotlin {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
         minSdk = 23
-        targetSdk = 32
+        targetSdk = 33
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
