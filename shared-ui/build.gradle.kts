@@ -1,10 +1,11 @@
+import java.io.File
+import java.io.FileFilter
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
 import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractExecutable
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
 import org.jetbrains.kotlin.library.impl.KotlinLibraryLayoutImpl
 import org.jetbrains.kotlin.konan.file.File as KonanFile
-import java.io.FileFilter
 
 plugins {
     kotlin("multiplatform")

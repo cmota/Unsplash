@@ -7,7 +7,6 @@ import com.cmota.unsplash.domain.cb.UnsplashData
 import com.cmota.unsplash.platform.Logger
 import com.cmota.unsplash.ui.components.Column
 import com.cmota.unsplash.ui.components.Image
-import org.jetbrains.compose.common.ui.ExperimentalComposeWebWidgetsApi
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.bottom
@@ -48,7 +47,6 @@ fun main() {
     })
 }
 
-@OptIn(ExperimentalComposeWebWidgetsApi::class)
 @Composable
 fun AddUnsplashImage(image: Image) {
 

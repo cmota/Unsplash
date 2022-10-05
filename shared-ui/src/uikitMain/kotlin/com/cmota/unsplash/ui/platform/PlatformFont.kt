@@ -6,7 +6,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.cmota.unsplash.ui.MR
 import com.cmota.unsplash.ui.utils.loadBytes
-import platform.Foundation.NSLog
 
 @Composable
 actual fun Font(name: String, res: String, weight: FontWeight, style: FontStyle): Font {

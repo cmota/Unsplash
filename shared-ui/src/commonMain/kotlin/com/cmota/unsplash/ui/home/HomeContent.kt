@@ -43,7 +43,6 @@ import com.cmota.unsplash.ui.UnsplashViewModel
 import com.cmota.unsplash.ui.components.AddImagePreview
 import com.cmota.unsplash.ui.platform.VerticalScrollbar
 import com.cmota.unsplash.ui.platform.rememberScrollbarAdapter
-import com.cmota.unsplash.ui.theme.Fonts
 import com.cmota.unsplash.ui.theme.colorAccent
 import com.cmota.unsplash.ui.theme.colorContent
 import com.cmota.unsplash.ui.theme.colorContent20Transparency

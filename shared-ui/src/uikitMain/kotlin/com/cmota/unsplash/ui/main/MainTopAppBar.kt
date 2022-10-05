@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cmota.unsplash.ui.components.UnsplashTopAppBar
-import com.cmota.unsplash.ui.theme.Fonts
 import com.cmota.unsplash.ui.theme.colorContent
 
 @Composable
