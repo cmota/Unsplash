@@ -8,9 +8,9 @@ import com.cmota.unsplash.ui.platform.Font
 
 object Fonts {
     @Composable
-    fun AssistantFont() = FontFamily(
+    fun BigNoodleTitling() = FontFamily(
         Font(
-            "AssistantFontFamily",
+            "BigNoodleTitlingFamily",
             "big_noodle_titling",
             FontWeight.Normal,
             FontStyle.Normal

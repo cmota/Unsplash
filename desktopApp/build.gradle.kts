@@ -19,8 +19,7 @@ kotlin {
                 implementation(compose.desktop.currentOs)
 
                 implementation(project(":shared-ui"))
-
-                implementation("moe.tlaster:precompose:1.3.8")
+                implementation(project(":precompose"))
             }
         }
     }

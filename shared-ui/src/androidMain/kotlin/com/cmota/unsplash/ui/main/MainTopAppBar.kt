@@ -10,16 +10,14 @@ import com.cmota.unsplash.ui.components.UnsplashTopAppBar
 import com.cmota.unsplash.ui.theme.Fonts
 import com.cmota.unsplash.ui.theme.colorContent
 
-
 @Composable
 fun MainTopAppBar() {
-
     UnsplashTopAppBar(
         title = {
             Text(
                 text = "Unsplash",
                 style = typography.h4,
-                fontFamily = Fonts.AssistantFont()
+                //fontFamily = Fonts.BigNoodleTitling()
             )
         },
         modifier = Modifier.fillMaxWidth(),

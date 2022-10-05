@@ -53,8 +53,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.6.0")
 
     implementation(project(":shared-ui"))
-
-    implementation("moe.tlaster:precompose:1.3.8")
+    implementation(project(":precompose"))
 
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

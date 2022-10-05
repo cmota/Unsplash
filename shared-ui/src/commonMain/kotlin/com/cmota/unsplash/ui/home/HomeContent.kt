@@ -1,6 +1,5 @@
 package com.cmota.unsplash.ui.home
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,11 +10,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
@@ -23,6 +24,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -31,7 +33,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -50,7 +51,6 @@ import com.cmota.unsplash.ui.theme.colorContent85Transparency
 import com.cmota.unsplash.ui.theme.colorContentSecondary
 import com.cmota.unsplash.ui.theme.colorPrimary
 import com.cmota.unsplash.ui.theme.icSearch
-import moe.tlaster.precompose.ui.observeAsState
 
 @Composable
 fun HomeContent(
@@ -60,7 +60,7 @@ fun HomeContent(
 
     unsplashViewModel.fetchImages()
 
-    val images = unsplashViewModel.images.observeAsState()
+    val images = unsplashViewModel.images.collectAsState()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -106,16 +106,14 @@ fun AddSearchField(
 
     val focused = remember { mutableStateOf(false) }
 
-    val contentColor = if (focused.value) {
-        colorPrimary
-    } else {
-        colorAccent
-    }
-
     OutlinedTextField(
         value = search.value,
         onValueChange = { value ->
             search.value = value
+
+            if (search.value.length > 2) {
+                onSearchAction(search.value)
+            }
         },
         modifier = Modifier
           .fillMaxWidth()
@@ -123,21 +121,22 @@ fun AddSearchField(
           .onFocusChanged {
             focused.value = it.isFocused
           },
+        textStyle = typography.h4,
         placeholder = {
             Text(
                 text = "Search for a topic",
                 style = typography.h4,
-                fontFamily = Fonts.AssistantFont(),
+                //fontFamily = Fonts.BigNoodleTitling(),
                 color = colorAccent
             )
         },
         leadingIcon = {
             val description = "Search for a topic"
 
-            Image(
-                painter = icSearch(),
+            Icon(
+                imageVector = icSearch(),
                 contentDescription = description,
-                colorFilter = ColorFilter.tint(color = contentColor)
+                modifier = Modifier.size(30.dp)
             )
         },
         colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -202,7 +201,7 @@ fun AddUnsplashImage(image: Image) {
                 Text(
                     text = image.description ?: "",
                     style = typography.h1,
-                    fontFamily = Fonts.AssistantFont(),
+                    //fontFamily = Fonts.BigNoodleTitling(),
                     color = colorAccent
                 )
 
@@ -211,7 +210,7 @@ fun AddUnsplashImage(image: Image) {
                 Text(
                     text = image.user.username,
                     style = typography.h2,
-                    fontFamily = Fonts.AssistantFont(),
+                    //fontFamily = Fonts.BigNoodleTitling(),
                     color = colorAccent,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis

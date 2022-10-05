@@ -10,10 +10,10 @@ private const val TAG = "GetUnsplashData"
 public class GetUnsplashData {
 
     public suspend fun invoke(
-        onSuccess: (List<Image>) -> Unit,
-        onFailure: (Exception) -> Unit
-    ) {
-        try {
+        //onSuccess: (List<Image>) -> Unit,
+        //onFailure: (Exception) -> Unit
+    ): List<Image> {
+        /*try {
 
             val result = UnsplashAPI.fetchImages()
 
@@ -28,6 +28,16 @@ public class GetUnsplashData {
             coroutineScope {
                 onFailure(e)
             }
+        }*/
+        return try {
+            val result = UnsplashAPI.fetchImages()
+
+            Logger.d(TAG, "invoke | result=$result")
+
+            result
+        } catch (e: Exception) {
+            Logger.d(TAG, "Unable to fetch images. Error: $e")
+            emptyList<Image>()
         }
     }
 

@@ -19,8 +19,8 @@ desktopApp/build
 webApp/build
 iosApp/Pods
 
-kamel-core/build
-kamel-image/build
+precompose/build
+touchlab-image/build
 
 shared-logic/build
 shared-ui/build

@@ -9,6 +9,7 @@ buildscript {
         // Kotlin 1.7.20 it's not currently supported by the latest version of compose-jb
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.7.10")
+        classpath("dev.icerock.moko:resources-generator:0.20.1")
     }
 }
 

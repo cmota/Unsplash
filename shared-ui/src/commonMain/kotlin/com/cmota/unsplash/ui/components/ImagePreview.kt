@@ -2,20 +2,18 @@ package com.cmota.unsplash.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import com.cmota.unsplash.platform.Logger
-import com.cmota.unsplash.ui.theme.icLauncher
-import io.kamel.core.Resource
-import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import com.touchlab.image.RemoteImage
 
 private const val TAG = "ImagePreview"
 
@@ -31,31 +29,12 @@ fun AddImagePreview(
 
     } else {
 
-        Box {
-
-            when (val resource = lazyPainterResource(url)) {
-                is Resource.Loading -> {
-                    Logger.d(TAG, "Loading image from uri=$url")
-                    AddImagePreviewEmpty(modifier)
-                }
-                is Resource.Success -> {
-                    Logger.d(TAG, "Loading successful image from uri=$url")
-
-                    KamelImage(
-                        resource = resource,
-                        contentScale = ContentScale.Crop,
-                        contentDescription = "Image preview",
-                        modifier = modifier,
-                        crossfade = true
-                    )
-                }
-                is Resource.Failure -> {
-                    Logger.d(TAG, "Loading failed image from uri=$url. Reason=${resource.exception}")
-
-                    AddImagePreviewEmpty(modifier)
-                }
-            }
-        }
+        RemoteImage(
+            imageUrl = url,
+            contentDescription = "Image preview",
+            contentScale = ContentScale.Crop,
+            modifier = modifier
+        )
     }
 }
 
@@ -86,7 +65,7 @@ fun AddImagePreviewEmpty(
             ) {
 
                 Image(
-                    painter = icLauncher(),
+                    imageVector = Icons.Filled.Warning,
                     contentScale = ContentScale.Crop,
                     contentDescription = description,
                     modifier = modifier

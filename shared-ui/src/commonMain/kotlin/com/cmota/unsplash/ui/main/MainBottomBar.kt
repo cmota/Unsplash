@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -16,7 +17,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.cmota.unsplash.ui.theme.Fonts
 import com.cmota.unsplash.ui.theme.colorAccent
 import com.cmota.unsplash.ui.theme.colorAccent25Transparency
 import com.cmota.unsplash.ui.theme.colorContent
@@ -79,16 +79,16 @@ private fun AppBottomNavigation(
                 modifier = Modifier.background(color = colorContent),
                 icon = {
                     Icon(
-                        painter = icon,
-                        contentDescription = screen.route
+                        imageVector = icon,
+                        contentDescription = screen.route,
+                        modifier = Modifier.size(20.dp)
                     )
                 },
                 label = {
                     Text(
                         screen.route,
-                        //stringResource(id = screen.stringResId),
                         style = style,
-                        fontFamily = Fonts.AssistantFont()
+                        //fontFamily = Fonts.BigNoodleTitling()
                     )
                 },
                 selected = isSelected,

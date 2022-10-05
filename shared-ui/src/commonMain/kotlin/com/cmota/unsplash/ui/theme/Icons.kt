@@ -1,16 +1,13 @@
 package com.cmota.unsplash.ui.theme
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
-public expect fun icAbout(): Painter
+public expect fun icAbout(): ImageVector
 
 @Composable
-public expect fun icHome(): Painter
+public expect fun icHome(): ImageVector
 
 @Composable
-public expect fun icLauncher(): Painter
-
-@Composable
-public expect fun icSearch(): Painter
+public expect fun icSearch(): ImageVector
