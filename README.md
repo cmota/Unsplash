@@ -97,7 +97,7 @@ To compile and run the web application run:
 
 <img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
 
-[1]:	https://speakerdeck.com/cmota/an-android-a-desktop-and-a-web-developer-enter-in-a-bar
+[1]:	https://speakerdeck.com/cmota/the-adventure-of-kotlin-and-compose-through-the-multiplatform-world-ii
 [2]:	https://github.com/ktorio/ktor
 [3]:	https://github.com/Kotlin/kotlinx.serialization
 [4]:	https://github.com/Tlaster/PreCompose/
