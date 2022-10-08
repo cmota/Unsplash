@@ -1,6 +1,6 @@
 # Unsplash
 
-Unsplash application for Android, Desktop and Web. Built using Kotlin Multiplatform and Compose with ❤️
+Unsplash application for Android, WearOS, Desktop, iOS and Web. Built using Kotlin Multiplatform and Compose with ❤️
 
 👉 [Presentation][1]
 
@@ -37,6 +37,16 @@ To compile and install the Desktop application run:
 
 	./gradlew desktopApp:run
 
+### iOS
+
+To compile and install the iOS application use Xcode
+
+### iOSCompose
+
+To compile and install the iOS application built with Compose run:
+
+	./gradlew iosApp-compose:iosDeployIPhone8Debug
+
 ### Web
 
 To compile and run the web application run:
@@ -50,7 +60,11 @@ To compile and run the web application run:
 - [PreCompose][4]
 - [Accompanist-Android][5]
 - [Accompanist-Desktop][6]
-- [Kamel][7]
+- [compose-imageloader][7]
+- [touchlab-image][8]*
+
+
+* touchlab-image, uses Coil[9] and image-loader[10] libraries. It's adapted from DroidKotlin[8] app, made by Touchlab
 
 ## Screens
 
@@ -69,6 +83,16 @@ To compile and run the web application run:
 <img src="screens/unsplash-desktop.gif" alt="Desktop version of Unsplash" />
 
 
+### iOS
+
+<img src="screens/unsplash-ios.gif" alt="iOS version of Unsplash" />
+
+
+### iOS Compose
+
+<img src="screens/unsplash-ios-compose.gif" alt="iOS Compose version of Unsplash" />
+
+
 ### Web
 
 <img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
@@ -79,4 +103,7 @@ To compile and run the web application run:
 [4]:	https://github.com/Tlaster/PreCompose/
 [5]:	https://github.com/google/accompanist/
 [6]:	https://github.com/Syer10/accompanist/
-[7]:	https://github.com/alialbaali/Kamel/
+[7]:	https://github.com/qdsfdhvh/compose-imageloader
+[8]:	https://github.com/touchlab/DroidconKotlin
+[9]:	https://github.com/coil-kt/coil
+[10]:	https://github.com/qdsfdhvh/compose-imageloader
