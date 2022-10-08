@@ -61,10 +61,10 @@ To compile and run the web application run:
 - [Accompanist-Android][5]
 - [Accompanist-Desktop][6]
 - [compose-imageloader][7]
-- [touchlab-image][8]*
+- [touchlab-image][8]
 
 
-* touchlab-image, uses Coil[9] and image-loader[10] libraries. It's adapted from DroidKotlin[8] app, made by Touchlab
+**[touchlab-image][8]**, uses [Coil][9] and [image-loader][10] libraries. It's adapted from DroidKotlin[8] app, made by Touchlab
 
 ## Screens
 
