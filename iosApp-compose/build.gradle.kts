@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-beta02"
+    id("org.jetbrains.compose") version "1.2.0"
 }
 
 version = "1.0.3"

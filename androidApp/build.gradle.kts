@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.compose") version "1.2.0-beta02"
+    id("org.jetbrains.compose") version "1.2.0"
     id("com.android.application")
     kotlin("android")
 }
@@ -36,7 +36,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.1"
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 
     packagingOptions {

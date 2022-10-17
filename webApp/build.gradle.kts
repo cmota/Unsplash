@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-beta02"
+    id("org.jetbrains.compose") version "1.2.0"
 }
 
 kotlin {

@@ -2,7 +2,7 @@ import java.util.*
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-beta02"
+    id("org.jetbrains.compose") version "1.2.0"
     id("com.android.library")
     id("maven-publish")
     id("signing")

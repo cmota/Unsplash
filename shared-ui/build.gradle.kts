@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-beta02"
+    id("org.jetbrains.compose") version "1.2.0"
     id("com.android.library")
     kotlin("plugin.serialization")
     id("dev.icerock.mobile.multiplatform-resources")
