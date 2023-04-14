@@ -16,5 +16,4 @@ include(":webApp")
 include(":shared-ui")
 include(":shared-logic")
 
-include(":precompose")
 include(":touchlab-image")

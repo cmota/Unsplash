@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import java.io.File
 import java.io.FileFilter
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
@@ -9,13 +11,13 @@ import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0"
+    id("org.jetbrains.compose") version "1.4.0"
     id("com.android.library")
     kotlin("plugin.serialization")
     id("dev.icerock.mobile.multiplatform-resources")
 }
 
-version = "1.0.3"
+version = "1.0.4"
 
 multiplatformResources {
     multiplatformResourcesPackage = "com.cmota.unsplash.ui"
@@ -53,12 +55,11 @@ kotlin {
                 api(compose.materialIconsExtended)
                 api(compose.ui)
 
-                api("com.google.android.material:material:1.6.1")
                 api("ca.gosyer:accompanist-swiperefresh:0.25.2")
-                api("dev.icerock.moko:resources:0.20.1")
+                api("dev.icerock.moko:resources:0.21.2")
+                api("moe.tlaster:precompose:1.3.15")
 
                 api(project(":shared-logic"))
-                api(project(":precompose"))
                 api(project(":touchlab-image"))
             }
         }

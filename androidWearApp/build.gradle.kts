@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -35,7 +37,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = "1.4.5"
     }
 
     packagingOptions {
@@ -48,19 +50,19 @@ android {
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.activity:activity-compose:1.6.0")
+    implementation("com.google.android.material:material:1.8.0")
+    implementation("androidx.activity:activity-compose:1.7.0")
 
-    implementation("androidx.compose.ui:ui:1.3.0-beta03")
-    implementation("androidx.compose.material:material:1.3.0-beta03")
-    implementation("androidx.compose.runtime:runtime-livedata:1.3.0-beta03")
+    implementation("androidx.compose.ui:ui:1.5.0-alpha02")
+    implementation("androidx.compose.material:material:1.5.0-alpha02")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.0-alpha02")
 
-    implementation("androidx.wear.compose:compose-material:1.1.0-alpha06")
-    implementation("androidx.wear.compose:compose-foundation:1.1.0-alpha06")
+    implementation("androidx.wear.compose:compose-material:1.2.0-alpha08")
+    implementation("androidx.wear.compose:compose-foundation:1.2.0-alpha08")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:2.2.1")
+    implementation("io.coil-kt:coil-compose:2.2.2")
 }
 
 kotlin.sourceSets.all {

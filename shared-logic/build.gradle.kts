@@ -1,10 +1,12 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
 }
 
-version = "1.0.3"
+version = "1.0.4"
 
 kotlin {
     android()
@@ -30,31 +32,31 @@ kotlin {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:2.1.2")
-                implementation("io.ktor:ktor-client-serialization:2.1.2")
-                implementation("io.ktor:ktor-client-content-negotiation:2.1.2")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.2")
-                implementation("io.ktor:ktor-client-logging:2.1.2")
+                implementation("io.ktor:ktor-client-core:2.1.3")
+                implementation("io.ktor:ktor-client-serialization:2.1.3")
+                implementation("io.ktor:ktor-client-content-negotiation:2.1.3")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+                implementation("io.ktor:ktor-client-logging:2.1.3")
 
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.1.2")
+                implementation("io.ktor:ktor-client-android:2.1.3")
             }
         }
         val desktopMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-cio:2.1.2")
+                implementation("io.ktor:ktor-client-cio:2.1.3")
             }
         }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.1.2")
+                implementation("io.ktor:ktor-client-js:2.1.3")
             }
         }
         val iosX64Main by getting
@@ -64,7 +66,7 @@ kotlin {
             dependsOn(commonMain)
 
             dependencies {
-                implementation("io.ktor:ktor-client-ios:2.1.2")
+                implementation("io.ktor:ktor-client-ios:2.1.3")
             }
 
             iosX64Main.dependsOn(this)

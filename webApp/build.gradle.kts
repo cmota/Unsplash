@@ -1,8 +1,10 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0"
+    id("org.jetbrains.compose") version "1.4.0"
 }
 
 kotlin {

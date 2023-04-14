@@ -1,10 +1,12 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0"
+    id("org.jetbrains.compose") version "1.4.0"
     id("com.android.library")
 }
 
-version = "1.0.3"
+version = "1.0.4"
 
 kotlin {
     android()
@@ -37,7 +39,6 @@ kotlin {
                 api(compose.material)
                 api(compose.runtime)
 
-                api("com.google.android.material:material:1.6.1")
                 api("io.github.qdsfdhvh:image-loader:1.2.0")
             }
         }

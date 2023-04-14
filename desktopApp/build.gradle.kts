@@ -1,8 +1,10 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0"
+    id("org.jetbrains.compose") version "1.4.0"
 }
 
 kotlin {
@@ -19,7 +21,8 @@ kotlin {
                 implementation(compose.desktop.currentOs)
 
                 implementation(project(":shared-ui"))
-                implementation(project(":precompose"))
+
+                implementation("moe.tlaster:precompose:1.3.15")
             }
         }
     }
@@ -32,7 +35,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "Unsplash"
-            packageVersion = "1.0.3"
+            packageVersion = "1.0.4"
 
             val resources = project.layout.projectDirectory.dir("src/jvmMain/resources")
             appResourcesRootDir.set(resources)

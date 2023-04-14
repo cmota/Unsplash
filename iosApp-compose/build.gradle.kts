@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import java.io.File
 import java.io.FileFilter
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
@@ -10,10 +12,10 @@ import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0"
+    id("org.jetbrains.compose") version "1.4.0"
 }
 
-version = "1.0.3"
+version = "1.0.4"
 
 kotlin {
 

@@ -5,11 +5,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.2.2")
-        // Kotlin 1.7.20 it's not currently supported by the latest version of compose-jb
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:1.7.10")
-        classpath("dev.icerock.moko:resources-generator:0.20.1")
+        classpath("com.android.tools.build:gradle:8.0.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.8.20")
+        classpath("dev.icerock.moko:resources-generator:0.21.2")
     }
 }
 
