@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("org.jetbrains.compose") version "1.4.0"
     id("com.android.application")
     kotlin("android")
 }
@@ -29,8 +28,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -38,7 +37,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.5"
+        kotlinCompilerExtensionVersion = "1.5.0-dev-k1.9.0-6a60475e07f"
     }
 
     packagingOptions {
@@ -53,10 +52,11 @@ dependencies {
 
     implementation(project(":shared-ui"))
 
-    implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.activity:activity-compose:1.7.0")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.activity:activity-compose:1.7.2")
 
-    implementation("moe.tlaster:precompose:1.3.15")
+    implementation("moe.tlaster:precompose:1.4.3")
+    implementation("moe.tlaster:precompose-viewmodel:1.4.3")
 
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

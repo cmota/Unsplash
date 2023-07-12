@@ -6,10 +6,10 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-version = "1.0.4"
+version = "1.0.5"
 
 kotlin {
-    android()
+    androidTarget()
 
     jvm("desktop")
 
@@ -32,31 +32,31 @@ kotlin {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:2.1.3")
-                implementation("io.ktor:ktor-client-serialization:2.1.3")
-                implementation("io.ktor:ktor-client-content-negotiation:2.1.3")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
-                implementation("io.ktor:ktor-client-logging:2.1.3")
+                implementation("io.ktor:ktor-client-core:2.3.2")
+                implementation("io.ktor:ktor-client-serialization:2.3.1")
+                implementation("io.ktor:ktor-client-content-negotiation:2.3.1")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.1")
+                implementation("io.ktor:ktor-client-logging:2.3.1")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.1.3")
+                implementation("io.ktor:ktor-client-android:2.3.1")
             }
         }
         val desktopMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-cio:2.1.3")
+                implementation("io.ktor:ktor-client-cio:2.3.1")
             }
         }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.1.3")
+                implementation("io.ktor:ktor-client-js:2.3.1")
             }
         }
         val iosX64Main by getting
@@ -66,7 +66,7 @@ kotlin {
             dependsOn(commonMain)
 
             dependencies {
-                implementation("io.ktor:ktor-client-ios:2.1.3")
+                implementation("io.ktor:ktor-client-ios:2.3.1")
             }
 
             iosX64Main.dependsOn(this)
@@ -81,11 +81,10 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     namespace = "com.cmota.unsplash.logic"
 }

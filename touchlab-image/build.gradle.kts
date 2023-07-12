@@ -2,14 +2,19 @@
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.4.0"
+    id("org.jetbrains.compose") version "1.5.0-dev1074"
     id("com.android.library")
 }
 
-version = "1.0.4"
+version = "1.0.5"
+
+compose {
+    kotlinCompilerPlugin.set("1.4.8-beta")
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
+}
 
 kotlin {
-    android()
+    androidTarget()
 
     jvm("desktop")
 
@@ -39,13 +44,13 @@ kotlin {
                 api(compose.material)
                 api(compose.runtime)
 
-                api("io.github.qdsfdhvh:image-loader:1.2.0")
+                api("io.github.qdsfdhvh:image-loader:1.6.0")
             }
         }
 
         val androidMain by getting {
             dependencies {
-                api("io.coil-kt:coil-compose:2.2.2")
+                api("io.coil-kt:coil-compose:2.4.0")
             }
         }
 
@@ -68,11 +73,10 @@ android {
     sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     namespace = "com.touchlab.image"
 }

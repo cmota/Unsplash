@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalForeignApi::class, BetaInteropApi::class)
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.runtime.CompositionLocalProvider
@@ -5,13 +7,15 @@ import androidx.compose.ui.Modifier
 import com.cmota.unsplash.ui.UnsplashViewModel
 import com.cmota.unsplash.ui.main.MainScreen
 import com.cmota.unsplash.ui.theme.UnsplashTheme
+import kotlinx.cinterop.BetaInteropApi
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCObjectBase
 import kotlinx.cinterop.autoreleasepool
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.toCValues
 import moe.tlaster.precompose.PreComposeApplication
-import moe.tlaster.precompose.ui.viewModel
+import moe.tlaster.precompose.viewmodel.viewModel
 import platform.Foundation.NSStringFromClass
 import platform.UIKit.UIApplication
 import platform.UIKit.UIApplicationDelegateProtocol

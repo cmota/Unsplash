@@ -5,10 +5,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.0.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:1.8.20")
-        classpath("dev.icerock.moko:resources-generator:0.21.2")
+        classpath("com.android.tools.build:gradle:8.0.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.9.0")
+        classpath("dev.icerock.moko:resources-generator:0.23.0")
     }
 }
 
@@ -17,6 +17,7 @@ allprojects {
         google()
         mavenCentral()
         maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
+        maven { url = uri("https://androidx.dev/storage/compose-compiler/repository/") }
     }
 
     afterEvaluate {
@@ -29,14 +30,6 @@ allprojects {
                     "androidTestFixturesRelease",
                 ).contains(sourceSet.name)
             }
-        }
-    }
-}
-
-subprojects {
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "11"
         }
     }
 }

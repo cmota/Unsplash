@@ -28,8 +28,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -37,7 +37,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.5"
+        kotlinCompilerExtensionVersion = "1.5.0-dev-k1.9.0-6a60475e07f"
     }
 
     packagingOptions {
@@ -50,19 +50,19 @@ android {
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.activity:activity-compose:1.7.0")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.activity:activity-compose:1.7.2")
 
-    implementation("androidx.compose.ui:ui:1.5.0-alpha02")
-    implementation("androidx.compose.material:material:1.5.0-alpha02")
-    implementation("androidx.compose.runtime:runtime-livedata:1.5.0-alpha02")
+    implementation("androidx.compose.ui:ui:1.5.0-beta03")
+    implementation("androidx.compose.material:material:1.5.0-beta03")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.0-beta03")
 
-    implementation("androidx.wear.compose:compose-material:1.2.0-alpha08")
-    implementation("androidx.wear.compose:compose-foundation:1.2.0-alpha08")
+    implementation("androidx.wear.compose:compose-material:1.2.0-beta02")
+    implementation("androidx.wear.compose:compose-foundation:1.2.0-beta02")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
 
 kotlin.sourceSets.all {

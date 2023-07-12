@@ -12,10 +12,15 @@ import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.4.0"
+    id("org.jetbrains.compose") version "1.5.0-dev1074"
 }
 
 version = "1.0.4"
+
+compose {
+    kotlinCompilerPlugin.set("1.4.8-beta")
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
+}
 
 kotlin {
 
@@ -46,7 +51,6 @@ kotlin {
                 implementation(compose.runtime)
 
                 implementation(project(":shared-ui"))
-                implementation(project(":touchlab-image"))
             }
         }
         val uikitX64Main by getting
@@ -84,19 +88,6 @@ compose.experimental {
     }
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
-}
-
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        binaries.all {
-            // TODO: the current compose binary surprises LLVM, so disable checks for now.
-            freeCompilerArgs += "-Xdisable-phases=VerifyBitcode"
-        }
-    }
-}
-
 kotlin.sourceSets.all {
     languageSettings.optIn("kotlin.RequiresOptIn")
 }
@@ -108,7 +99,6 @@ tasks.withType<KotlinNativeLink>()
         val task: KotlinNativeLink = this
 
         doLast {
-            val binary: NativeBinary = task.binary
             val outputDir: File = task.outputFile.get().parentFile
             task.libraries
                 .filter { library -> library.extension == "klib" }

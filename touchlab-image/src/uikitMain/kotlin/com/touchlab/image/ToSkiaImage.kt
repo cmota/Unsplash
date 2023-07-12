@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.touchlab.image
 
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.get
 import org.jetbrains.skia.ColorAlphaType
 import org.jetbrains.skia.ColorType

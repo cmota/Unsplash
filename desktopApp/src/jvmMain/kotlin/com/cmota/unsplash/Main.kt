@@ -11,7 +11,7 @@ import com.cmota.unsplash.ui.UnsplashViewModel
 import com.cmota.unsplash.ui.main.MainScreen
 import com.cmota.unsplash.ui.theme.UnsplashTheme
 import moe.tlaster.precompose.PreComposeWindow
-import moe.tlaster.precompose.ui.viewModel
+import moe.tlaster.precompose.viewmodel.viewModel
 
 fun main() {
     application {

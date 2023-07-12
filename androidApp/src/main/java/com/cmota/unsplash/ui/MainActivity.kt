@@ -5,7 +5,7 @@ import com.cmota.unsplash.ui.main.MainScreen
 import com.cmota.unsplash.ui.theme.UnsplashTheme
 import moe.tlaster.precompose.lifecycle.PreComposeActivity
 import moe.tlaster.precompose.lifecycle.setContent
-import moe.tlaster.precompose.ui.viewModel
+import moe.tlaster.precompose.viewmodel.viewModel
 
 const val TAG = "MainActivity-Android"
 
