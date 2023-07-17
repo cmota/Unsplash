@@ -17,6 +17,8 @@ allprojects {
         google()
         mavenCentral()
         maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap") }
         maven { url = uri("https://androidx.dev/storage/compose-compiler/repository/") }
     }
 

@@ -18,6 +18,10 @@ kotlin {
         binaries.executable()
     }
 
+    wasm {
+        browser()
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -32,15 +36,13 @@ kotlin {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:2.3.2")
-                implementation("io.ktor:ktor-client-serialization:2.3.1")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.1")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.1")
-                implementation("io.ktor:ktor-client-logging:2.3.1")
+                implementation("io.ktor:ktor-client-core:2.3.1-wasm0")
+                implementation("io.ktor:ktor-client-content-negotiation:2.3.1-wasm0")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.1-wasm0")
+                implementation("io.ktor:ktor-client-logging:2.3.1-wasm0")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-RC-wasm0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1-wasm0")
             }
         }
         val commonTest by getting
@@ -57,6 +59,11 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-js:2.3.1")
+            }
+        }
+        val wasmMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:2.3.1-wasm0")
             }
         }
         val iosX64Main by getting

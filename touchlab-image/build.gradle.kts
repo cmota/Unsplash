@@ -2,21 +2,25 @@
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.5.0-dev1074"
+    id("org.jetbrains.compose") version "1.4.0-dev-wasm09"
     id("com.android.library")
 }
 
 version = "1.0.5"
 
-compose {
+/*compose {
     kotlinCompilerPlugin.set("1.4.8-beta")
     kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-}
+}*/
 
 kotlin {
     androidTarget()
 
     jvm("desktop")
+
+    wasm {
+        browser()
+    }
 
     listOf(
         iosX64("uikitX64"),
@@ -44,7 +48,9 @@ kotlin {
                 api(compose.material)
                 api(compose.runtime)
 
-                api("io.github.qdsfdhvh:image-loader:1.6.0")
+                implementation("io.ktor:ktor-client-core:2.3.1-wasm0")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-RC-wasm0")
             }
         }
 
@@ -54,7 +60,17 @@ kotlin {
             }
         }
 
-        val desktopMain by getting
+        val desktopMain by getting {
+            dependencies {
+                api("io.github.qdsfdhvh:image-loader:1.6.0")
+            }
+        }
+
+        val wasmMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:2.3.1-wasm0")
+            }
+        }
 
         val uikitX64Main by getting
         val uikitArm64Main by getting

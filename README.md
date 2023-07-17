@@ -53,6 +53,12 @@ To compile and run the web application run:
 
 	./gradlew webApp:jsBrowserRun
 
+### Web WASM
+
+To compile and run the web application run:
+
+	./gradlew wasmBrowserRun
+
 
 ## Libraries
 - [ktor][2]
@@ -96,6 +102,12 @@ To compile and run the web application run:
 ### Web
 
 <img src="screens/unsplash-web.gif" alt="Web version of Unsplash" />
+
+
+### Web WASM
+
+<img src="screens/unsplash-web-wasm.gif" alt="Web WASM version of Unsplash" />
+
 
 [1]:	https://speakerdeck.com/cmota/the-adventure-of-kotlin-and-compose-through-the-multiplatform-world-ii
 [2]:	https://github.com/ktorio/ktor

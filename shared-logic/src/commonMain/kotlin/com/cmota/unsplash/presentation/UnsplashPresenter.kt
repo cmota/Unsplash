@@ -19,13 +19,6 @@ class UnsplashPresenter(private val data: GetUnsplashData) {
     private val scope = PresenterCoroutineScope(ioDispatcher)
     private var listener: UnsplashData? = null
 
-    /*public fun fetchImages(cb: UnsplashData) {
-        Logger.d(TAG, "fetchImages")
-        listener = cb
-
-        fetchImages()
-    }*/
-
     public fun searchForImage(keyword: String, cb: UnsplashData) {
         Logger.d(TAG, "searchForImage | keyword=$keyword")
         listener = cb
@@ -33,33 +26,18 @@ class UnsplashPresenter(private val data: GetUnsplashData) {
         searchForImage(keyword)
     }
 
-    /*private fun fetchImages() {
-        scope.launch {
-            data.invoke(
-                onSuccess = { listener?.onNewDataAvailable(it, null) },
-                onFailure = { listener?.onNewDataAvailable(emptyList(), it) }
-            )
-        }
-    }*/
-
     public fun fetchImages(cb: UnsplashData) {
         Logger.d(TAG, "fetchImages")
 
         CoroutineScope(Dispatchers.Default).launch {
-            Logger.d(TAG, "fetchingImages")
-            Logger.d(TAG, "---->1")
             val result = UnsplashAPI.fetchImages()
-            Logger.d(TAG, "---->2")
             cb.onNewDataAvailable(result, null)
-            Logger.d(TAG, "fetchingImages--done")
         }
     }
 
     public suspend fun fetchImages(): List<Image> {
         return CoroutineScope(Dispatchers.Default).async {
-            Logger.d(TAG, "---->1")
             val result = UnsplashAPI.fetchImages()
-            Logger.d(TAG, "---->2")
             result
         }.await()
     }

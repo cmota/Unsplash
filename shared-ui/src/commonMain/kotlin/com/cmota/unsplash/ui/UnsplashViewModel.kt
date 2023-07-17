@@ -16,7 +16,6 @@ const val TAG = "UnsplashViewModel"
 
 class UnsplashViewModel : ViewModel(), UnsplashData {
 
-    //val images = LiveData<MutableList<Image>>(mutableListOf())
     val images = MutableStateFlow(mutableListOf<Image>())
 
     private val presenter by lazy {
@@ -26,10 +25,7 @@ class UnsplashViewModel : ViewModel(), UnsplashData {
     fun fetchImages() {
         Logger.d(TAG, "fetchImages")
         CoroutineScope(Dispatchers.Main).launch {
-            Logger.d(TAG, "---->Images:1")
-            //images.value = presenter.fetchImages().toMutableList()
             images.value = UnsplashAPI.fetchImages().toMutableList()
-            Logger.d(TAG, "---->Images:2")
         }
     }
 
