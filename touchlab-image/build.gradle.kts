@@ -8,10 +8,10 @@ plugins {
 
 version = "1.0.5"
 
-/*compose {
+compose {
     kotlinCompilerPlugin.set("1.4.8-beta")
     kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-}*/
+}
 
 kotlin {
     androidTarget()
@@ -76,6 +76,10 @@ kotlin {
         val uikitArm64Main by getting
         val uikitMain by creating {
             dependsOn(commonMain)
+
+            dependencies {
+                api("io.github.qdsfdhvh:image-loader:1.6.0")
+            }
 
             uikitX64Main.dependsOn(this)
             uikitArm64Main.dependsOn(this)
