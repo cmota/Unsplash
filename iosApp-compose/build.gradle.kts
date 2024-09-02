@@ -91,43 +91,6 @@ kotlin.sourceSets.all {
     languageSettings.optIn("kotlin.RequiresOptIn")
 }
 
-// todo: Remove when resolved: https://github.com/icerockdev/moko-resources/issues/372
-tasks.withType<KotlinNativeLink>()
-    .matching { linkTask -> linkTask.binary is AbstractExecutable }
-    .configureEach {
-        val task: KotlinNativeLink = this
-
-        doLast {
-            val outputDir: File = task.outputFile.get().parentFile
-            task.libraries
-                .filter { library -> library.extension == "klib" }
-                .filter(File::exists)
-                .forEach { inputFile ->
-                    val klibKonan = KonanFile(inputFile.path)
-                    val klib = KotlinLibraryLayoutImpl(
-                        klib = klibKonan,
-                        component = "default"
-                    )
-                    val layout = klib.extractingToTemp
-
-                    // extracting bundles
-                    layout
-                        .resourcesDir
-                        .absolutePath
-                        .let(::File)
-                        .listFiles(FileFilter { it.extension == "bundle" })
-                        // copying bundles to app
-                        ?.forEach { bundleFile ->
-                            logger.info("${bundleFile.absolutePath} copying to $outputDir")
-                            bundleFile.copyRecursively(
-                                target = File(outputDir, bundleFile.name),
-                                overwrite = true
-                            )
-                        }
-                }
-        }
-    }
-
 tasks.withType<AbstractNativeMacApplicationPackageAppDirTask> {
     val task: AbstractNativeMacApplicationPackageAppDirTask = this
 

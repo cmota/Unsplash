@@ -64,11 +64,6 @@ kotlin {
 
                 api(compose.components.resources)
 
-                //api("ca.gosyer:accompanist-swiperefresh:0.30.1")
-
-                //api("dev.icerock.moko:resources:0.24.2")
-                //api("dev.icerock.moko:resources-compose:0.24.2")
-
                 api("moe.tlaster:precompose:1.6.1")
                 api("moe.tlaster:precompose-viewmodel:1.6.1")
 
@@ -80,17 +75,11 @@ kotlin {
         val androidMain by getting
         val desktopMain by getting {
             dependsOn(commonMain)
-
-            // https://github.com/icerockdev/moko-resources/issues/510
-            //resources.srcDirs("build/generated/moko/desktopMain/src")
         }
         val uikitX64Main by getting
         val uikitArm64Main by getting
         val uikitMain by creating {
             dependsOn(commonMain)
-
-            // https://github.com/icerockdev/moko-resources/issues/510
-            //resources.srcDirs("build/generated/moko/uikitMain/src")
 
             uikitX64Main.dependsOn(this)
             uikitArm64Main.dependsOn(this)
@@ -100,9 +89,6 @@ kotlin {
                 implementation(kotlin("stdlib"))
 
                 dependsOn(commonMain)
-
-                // https://github.com/icerockdev/moko-resources/issues/510
-                //resources.srcDirs("build/generated/moko/wasmJsMain/src")
             }
         }
     }
@@ -111,8 +97,6 @@ kotlin {
 android {
     compileSdk = 34
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    // https://github.com/icerockdev/moko-resources/issues/510
-    sourceSets["main"].java.srcDirs("build/generated/moko/androidMain/src")
     sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
         minSdk = 23
@@ -127,43 +111,6 @@ android {
 kotlin.sourceSets.all {
     languageSettings.optIn("kotlin.RequiresOptIn")
 }
-
-// todo: Remove when resolved: https://github.com/icerockdev/moko-resources/issues/372
-tasks.withType<KotlinNativeLink>()
-    .matching { linkTask -> linkTask.binary is AbstractExecutable }
-    .configureEach {
-        val task: KotlinNativeLink = this
-
-        doLast {
-            val outputDir: File = task.outputFile.get().parentFile
-            task.libraries
-                .filter { library -> library.extension == "klib" }
-                .filter(File::exists)
-                .forEach { inputFile ->
-                    val klibKonan = KonanFile(inputFile.path)
-                    val klib = KotlinLibraryLayoutImpl(
-                        klib = klibKonan,
-                        component = "default"
-                    )
-                    val layout = klib.extractingToTemp
-
-                    // extracting bundles
-                    layout
-                        .resourcesDir
-                        .absolutePath
-                        .let(::File)
-                        .listFiles(FileFilter { it.extension == "bundle" })
-                        // copying bundles to app
-                        ?.forEach { bundleFile ->
-                            logger.info("${bundleFile.absolutePath} copying to $outputDir")
-                            bundleFile.copyRecursively(
-                                target = File(outputDir, bundleFile.name),
-                                overwrite = true
-                            )
-                        }
-                }
-        }
-    }
 
 tasks.withType<AbstractNativeMacApplicationPackageAppDirTask> {
     val task: AbstractNativeMacApplicationPackageAppDirTask = this
