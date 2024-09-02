@@ -3,17 +3,18 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.cmota.unsplash"
         minSdk = 25
         targetSdk = 33
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -37,10 +38,10 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0-dev-k1.9.0-6a60475e07f"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -50,19 +51,19 @@ android {
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.activity:activity-compose:1.9.1")
 
-    implementation("androidx.compose.ui:ui:1.5.0-beta03")
-    implementation("androidx.compose.material:material:1.5.0-beta03")
-    implementation("androidx.compose.runtime:runtime-livedata:1.5.0-beta03")
+    implementation("androidx.compose.ui:ui:1.6.8")
+    implementation("androidx.compose.material:material:1.6.8")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.8")
 
-    implementation("androidx.wear.compose:compose-material:1.2.0-beta02")
-    implementation("androidx.wear.compose:compose-foundation:1.2.0-beta02")
+    implementation("androidx.wear.compose:compose-material:1.3.1")
+    implementation("androidx.wear.compose:compose-foundation:1.3.1")
 
     implementation(project(":shared-logic"))
 
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.7.0")
 }
 
 kotlin.sourceSets.all {

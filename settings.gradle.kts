@@ -10,12 +10,10 @@ pluginManagement {
 rootProject.name = "Unsplash"
 include(":androidApp")
 include(":androidWearApp")
-include(":iosApp-compose")
+//include(":iosApp-compose")
 include(":desktopApp")
 include(":webApp")
 include(":webApp-wasm")
 
 include(":shared-ui")
 include(":shared-logic")
-
-include(":touchlab-image")

@@ -11,6 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.cmota.unsplash.ui.Res
+import com.cmota.unsplash.ui.about_text
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AboutContent() {
@@ -23,7 +26,7 @@ fun AboutContent() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "This is a showcase application built using Jetpack Compose that uses Unsplash API.",
+            text = stringResource(Res.string.about_text),
             style = MaterialTheme.typography.h4,
             //fontFamily = Fonts.BigNoodleTitling(),
             textAlign = TextAlign.Center

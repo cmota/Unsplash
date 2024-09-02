@@ -4,12 +4,8 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.5.0-dev1074"
-}
-
-compose {
-    kotlinCompilerPlugin.set("1.4.8-beta")
-    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
+    id("org.jetbrains.compose") version "1.7.0-dev1783"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 kotlin {

@@ -10,7 +10,7 @@ import com.cmota.unsplash.ui.components.UnsplashTopAppBar
 import com.cmota.unsplash.ui.theme.colorContent
 
 @Composable
-fun MainTopAppBar() {
+actual fun MainTopAppBar() {
     UnsplashTopAppBar(
         title = {
             Text(

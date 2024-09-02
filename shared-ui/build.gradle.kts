@@ -1,37 +1,37 @@
 @file:Suppress("UnstableApiUsage")
 
-import java.io.File
-import java.io.FileFilter
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
 import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractExecutable
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
 import org.jetbrains.kotlin.library.impl.KotlinLibraryLayoutImpl
+import java.io.File
+import java.io.FileFilter
 import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.5.0-dev1074"
+    id("org.jetbrains.compose") version "1.7.0-dev1783"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
     id("com.android.library")
     kotlin("plugin.serialization")
-    id("dev.icerock.mobile.multiplatform-resources")
 }
 
-version = "1.0.5"
+version = "1.0.6"
 
-multiplatformResources {
-    multiplatformResourcesPackage = "com.cmota.unsplash.ui"
-}
-
-compose {
-    kotlinCompilerPlugin.set("1.4.8-beta")
-    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "com.cmota.unsplash.ui"
+    generateResClass = always
 }
 
 kotlin {
     androidTarget()
 
     jvm("desktop")
+
+    wasmJs{
+        browser()
+    }
 
     listOf(
         iosX64("uikitX64"),
@@ -51,6 +51,8 @@ kotlin {
         }
     }
 
+    jvmToolchain(17)
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -60,16 +62,19 @@ kotlin {
                 api(compose.materialIconsExtended)
                 api(compose.ui)
 
-                api("ca.gosyer:accompanist-swiperefresh:0.30.1")
+                api(compose.components.resources)
 
-                api("dev.icerock.moko:resources:0.23.0")
-                api("dev.icerock.moko:resources-compose:0.23.0")
+                //api("ca.gosyer:accompanist-swiperefresh:0.30.1")
 
-                api("moe.tlaster:precompose:1.4.3")
-                api("moe.tlaster:precompose-viewmodel:1.4.3")
+                //api("dev.icerock.moko:resources:0.24.2")
+                //api("dev.icerock.moko:resources-compose:0.24.2")
+
+                api("moe.tlaster:precompose:1.6.1")
+                api("moe.tlaster:precompose-viewmodel:1.6.1")
+
+                api("io.github.qdsfdhvh:image-loader:1.8.3")
 
                 api(project(":shared-logic"))
-                api(project(":touchlab-image"))
             }
         }
         val androidMain by getting
@@ -77,7 +82,7 @@ kotlin {
             dependsOn(commonMain)
 
             // https://github.com/icerockdev/moko-resources/issues/510
-            resources.srcDirs("build/generated/moko/desktopMain/src")
+            //resources.srcDirs("build/generated/moko/desktopMain/src")
         }
         val uikitX64Main by getting
         val uikitArm64Main by getting
@@ -85,16 +90,26 @@ kotlin {
             dependsOn(commonMain)
 
             // https://github.com/icerockdev/moko-resources/issues/510
-            resources.srcDirs("build/generated/moko/uikitMain/src")
+            //resources.srcDirs("build/generated/moko/uikitMain/src")
 
             uikitX64Main.dependsOn(this)
             uikitArm64Main.dependsOn(this)
+        }
+        val wasmJsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+
+                dependsOn(commonMain)
+
+                // https://github.com/icerockdev/moko-resources/issues/510
+                //resources.srcDirs("build/generated/moko/wasmJsMain/src")
+            }
         }
     }
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     // https://github.com/icerockdev/moko-resources/issues/510
     sourceSets["main"].java.srcDirs("build/generated/moko/androidMain/src")

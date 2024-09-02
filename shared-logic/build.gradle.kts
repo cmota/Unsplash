@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-version = "1.0.5"
+version = "1.0.6"
 
 kotlin {
     androidTarget()
@@ -18,7 +18,7 @@ kotlin {
         binaries.executable()
     }
 
-    wasm {
+    wasmJs{
         browser()
     }
 
@@ -32,38 +32,40 @@ kotlin {
         }
     }
 
+    jvmToolchain(17)
+
     sourceSets {
         val commonMain by getting {
             dependencies {
 
-                implementation("io.ktor:ktor-client-core:2.3.1-wasm0")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.1-wasm0")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.1-wasm0")
-                implementation("io.ktor:ktor-client-logging:2.3.1-wasm0")
+                implementation("io.ktor:ktor-client-core:3.0.0-beta-2")
+                implementation("io.ktor:ktor-client-content-negotiation:3.0.0-beta-2")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.0-beta-2")
+                implementation("io.ktor:ktor-client-logging:3.0.0-beta-2")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-RC-wasm0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1-wasm0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3") // Newer versions not compatible with 1.9.x
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.3.1")
+                implementation("io.ktor:ktor-client-android:3.0.0-beta-2")
             }
         }
         val desktopMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-cio:2.3.1")
+                implementation("io.ktor:ktor-client-cio:3.0.0-beta-2")
             }
         }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.3.1")
+                implementation("io.ktor:ktor-client-js:3.0.0-beta-2")
             }
         }
-        val wasmMain by getting {
+        val wasmJsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.3.1-wasm0")
+                implementation("io.ktor:ktor-client-js:3.0.0-beta-2")
             }
         }
         val iosX64Main by getting
@@ -73,7 +75,7 @@ kotlin {
             dependsOn(commonMain)
 
             dependencies {
-                implementation("io.ktor:ktor-client-ios:2.3.1")
+                implementation("io.ktor:ktor-client-ios:3.0.0-beta-2")
             }
 
             iosX64Main.dependsOn(this)
@@ -84,7 +86,7 @@ kotlin {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 23

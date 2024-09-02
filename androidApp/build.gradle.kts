@@ -3,17 +3,18 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.cmota.unsplash"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -32,15 +33,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlin {
+        jvmToolchain(17)
+    }
+
     buildFeatures {
         compose = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0-dev-k1.9.0-6a60475e07f"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -52,15 +57,11 @@ dependencies {
 
     implementation(project(":shared-ui"))
 
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.activity:activity-compose:1.9.1")
 
-    implementation("moe.tlaster:precompose:1.4.3")
-    implementation("moe.tlaster:precompose-viewmodel:1.4.3")
-
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("moe.tlaster:precompose:1.6.1")
+    implementation("moe.tlaster:precompose-viewmodel:1.6.1")
 }
 
 kotlin.sourceSets.all {

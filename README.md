@@ -57,7 +57,7 @@ To compile and run the web application run:
 
 To compile and run the web application run:
 
-	./gradlew wasmBrowserRun
+	./gradlew wasmJsBrowserRun
 
 
 ## Libraries

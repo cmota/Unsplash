@@ -16,14 +16,18 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import com.cmota.unsplash.ui.Res
+import com.cmota.unsplash.ui.big_noodle_titling
 import com.cmota.unsplash.ui.theme.colorAccent
 import com.cmota.unsplash.ui.theme.colorAccent25Transparency
 import com.cmota.unsplash.ui.theme.colorContent
 import com.cmota.unsplash.ui.theme.colorPrimary
-import com.cmota.unsplash.ui.theme.icAbout
-import com.cmota.unsplash.ui.theme.icHome
 import moe.tlaster.precompose.navigation.Navigator
+import org.jetbrains.compose.resources.Font
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 private lateinit var selectedIndex: MutableState<Int>
 
@@ -69,26 +73,20 @@ private fun AppBottomNavigation(
                 typography.subtitle2.copy(color = colorAccent)
             }
 
-            val icon = if (screen == BottomNavigationScreens.Home) {
-                icHome()
-            } else {
-                icAbout()
-            }
-
             BottomNavigationItem(
                 modifier = Modifier.background(color = colorContent),
                 icon = {
                     Icon(
-                        imageVector = icon,
-                        contentDescription = screen.route,
+                        painter = painterResource(screen.icon),
+                        contentDescription = stringResource(screen.title),
                         modifier = Modifier.size(20.dp)
                     )
                 },
                 label = {
                     Text(
-                        screen.route,
+                        text = stringResource(screen.title),
                         style = style,
-                        //fontFamily = Fonts.BigNoodleTitling()
+                        fontFamily = FontFamily(Font(Res.font.big_noodle_titling))
                     )
                 },
                 selected = isSelected,

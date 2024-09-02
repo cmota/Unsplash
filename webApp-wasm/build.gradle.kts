@@ -1,26 +1,22 @@
-@file:Suppress("UnstableApiUsage")
-
-import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.4.0-dev-wasm09"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("org.jetbrains.compose") version "1.7.0-dev1783"
 }
 
-@OptIn(ExperimentalComposeLibrary::class, ExperimentalWasmDsl::class)
 kotlin {
-
-    wasm {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         moduleName = "unsplash"
         browser {
             commonWebpackConfig {
+                outputFileName = "unsplashApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).copy(
                     static = (devServer?.static ?: mutableListOf()).apply {
                         add(project.rootDir.path)
-                        add(project.rootDir.path + "/shared-logic/")
-                        add(project.rootDir.path + "/touchlab-image/")
                         add(project.rootDir.path + "/webApp-wasm/")
                     }
                 )
@@ -30,22 +26,12 @@ kotlin {
     }
 
     sourceSets {
-        val wasmMain by getting {
+        val wasmJsMain by getting {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.components.resources)
-
-                implementation(project(":shared-logic"))
-                implementation(project(":touchlab-image"))
+                implementation(project(":shared-ui"))
             }
         }
     }
-}
-
-compose.experimental {
-    web.application {}
 }
 
 kotlin.sourceSets.all {

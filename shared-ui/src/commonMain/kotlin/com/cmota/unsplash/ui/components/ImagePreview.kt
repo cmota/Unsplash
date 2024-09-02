@@ -13,7 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import com.cmota.unsplash.platform.Logger
-import com.touchlab.image.RemoteImage
+import com.cmota.unsplash.ui.Res
+import com.cmota.unsplash.ui.description_preview
+import com.cmota.unsplash.ui.description_preview_error
+import com.seiko.imageloader.rememberImagePainter
+import org.jetbrains.compose.resources.stringResource
 
 private const val TAG = "ImagePreview"
 
@@ -29,9 +33,9 @@ fun AddImagePreview(
 
     } else {
 
-        RemoteImage(
-            imageUrl = url,
-            contentDescription = "Image preview",
+        Image(
+            painter = rememberImagePainter(url = url),
+            contentDescription = stringResource(Res.string.description_preview),
             contentScale = ContentScale.Crop,
             modifier = modifier
         )
@@ -57,8 +61,6 @@ fun AddImagePreviewEmpty(
             color = Color.Transparent
         ) {
 
-            val description = "Unable to load image preview"
-
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
@@ -67,7 +69,7 @@ fun AddImagePreviewEmpty(
                 Image(
                     imageVector = Icons.Filled.Warning,
                     contentScale = ContentScale.Crop,
-                    contentDescription = description,
+                    contentDescription = stringResource(Res.string.description_preview_error),
                     modifier = modifier
                 )
             }

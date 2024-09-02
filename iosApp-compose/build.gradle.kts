@@ -1,21 +1,20 @@
 @file:Suppress("UnstableApiUsage")
 
-import java.io.File
-import java.io.FileFilter
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
 import org.jetbrains.compose.experimental.dsl.IOSDevices
 import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractExecutable
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
 import org.jetbrains.kotlin.library.impl.KotlinLibraryLayoutImpl
+import java.io.File
+import java.io.FileFilter
 import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.5.0-dev1074"
+    id("org.jetbrains.compose") version "1.7.0-dev1783"
 }
 
-version = "1.0.4"
+version = "1.0.6"
 
 compose {
     kotlinCompilerPlugin.set("1.4.8-beta")

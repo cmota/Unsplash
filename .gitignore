@@ -1,26 +1,24 @@
 *.iml
 .gradle
 .idea
+.kotlin
+.DS_Store
+.externalNativeBuild
+.cxx
 
 local.properties
 
-.DS_Store
-
 build
 captures
-
-.externalNativeBuild
-
-.cxx
+kotlin-js-store
 
 androidApp/build
 androidWearApp/build
 desktopApp/build
 webApp/build
+webApp-wasm/build
 iosApp/Pods
-
-precompose/build
-touchlab-image/build
+iosApp-compose/build
 
 shared-logic/build
 shared-ui/build
