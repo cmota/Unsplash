@@ -1,12 +1,22 @@
 # Unsplash
 
-Unsplash application for Android, WearOS, Desktop, iOS and Web. Built using Kotlin Multiplatform and Compose with ❤️
+Unsplash application for Android, WearOS, Desktop, iOS and Web. Built using Kotlin Multiplatform and Compose with ❤️.
+
+The following projects share 100% of their logic and UI:
+- androidApp
+- desktopApp
+- iosApp-compose
+- webApp-wasm
+
+You can find it:
+- logic: shared-logic
+- screens: shared-ui
 
 👉 [Presentation][1]
 
 ## Set up the environment
 
-You're going to need Android Studio (at least Arctic Fox version) with the KMM plugin installed.
+You're going to need Android Studio with the KMM plugin installed.
 
 ### Running the apps
 
@@ -64,13 +74,7 @@ To compile and run the web application run:
 - [ktor][2]
 - [kotlinx.serialization][3]
 - [PreCompose][4]
-- [Accompanist-Android][5]
-- [Accompanist-Desktop][6]
-- [compose-imageloader][7]
-- [touchlab-image][8]
-
-
-**[touchlab-image][8]**, uses [Coil][9] and [image-loader][10] libraries. It's adapted from DroidKotlin[8] app, made by Touchlab
+- [compose-imageloader][5]
 
 ## Screens
 
@@ -113,9 +117,4 @@ To compile and run the web application run:
 [2]:	https://github.com/ktorio/ktor
 [3]:	https://github.com/Kotlin/kotlinx.serialization
 [4]:	https://github.com/Tlaster/PreCompose/
-[5]:	https://github.com/google/accompanist/
-[6]:	https://github.com/Syer10/accompanist/
-[7]:	https://github.com/qdsfdhvh/compose-imageloader
-[8]:	https://github.com/touchlab/DroidconKotlin
-[9]:	https://github.com/coil-kt/coil
-[10]:	https://github.com/qdsfdhvh/compose-imageloader
+[5]:	https://github.com/qdsfdhvh/compose-imageloader

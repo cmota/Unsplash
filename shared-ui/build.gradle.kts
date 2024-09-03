@@ -1,12 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
 import org.jetbrains.compose.desktop.application.tasks.AbstractNativeMacApplicationPackageAppDirTask
-import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractExecutable
-import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
-import org.jetbrains.kotlin.library.impl.KotlinLibraryLayoutImpl
-import java.io.File
-import java.io.FileFilter
-import org.jetbrains.kotlin.konan.file.File as KonanFile
 
 plugins {
     kotlin("multiplatform")
@@ -59,10 +53,13 @@ kotlin {
                 api(compose.foundation)
                 api(compose.runtime)
                 api(compose.material)
+                api(compose.material3)
                 api(compose.materialIconsExtended)
                 api(compose.ui)
 
                 api(compose.components.resources)
+
+                api("org.jetbrains.compose.material3.adaptive:adaptive-layout:1.0.0-alpha01")
 
                 api("moe.tlaster:precompose:1.6.1")
                 api("moe.tlaster:precompose-viewmodel:1.6.1")
@@ -72,7 +69,11 @@ kotlin {
                 api(project(":shared-logic"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("androidx.window:window-core:1.3.0")
+            }
+        }
         val desktopMain by getting {
             dependsOn(commonMain)
         }
@@ -106,6 +107,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     namespace = "com.cmota.unsplash.ui"
+}
+
+configurations.configureEach {
+    exclude("androidx.window.core", "window-core")
 }
 
 kotlin.sourceSets.all {

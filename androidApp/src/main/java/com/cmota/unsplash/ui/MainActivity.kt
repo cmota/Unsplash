@@ -1,32 +1,16 @@
 package com.cmota.unsplash.ui
 
 import android.os.Bundle
-import com.cmota.unsplash.ui.main.MainScreen
-import com.cmota.unsplash.ui.theme.UnsplashTheme
-import moe.tlaster.precompose.lifecycle.PreComposeActivity
-import moe.tlaster.precompose.lifecycle.setContent
-import moe.tlaster.precompose.viewmodel.viewModel
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 
-const val TAG = "MainActivity-Android"
-
-class MainActivity : PreComposeActivity() {
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-
-            val unsplashViewModel = viewModel {
-                UnsplashViewModel()
-            }
-
-            UnsplashTheme {
-                MainScreen(
-                    unsplashViewModel = unsplashViewModel,
-                    onSearchAction = { search -> unsplashViewModel.searchForATopic(search) },
-                    onRefreshAction = { unsplashViewModel.fetchImages() }
-                )
-            }
+            App()
         }
     }
 }

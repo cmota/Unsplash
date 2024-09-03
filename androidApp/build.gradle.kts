@@ -59,9 +59,6 @@ dependencies {
 
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.activity:activity-compose:1.9.1")
-
-    implementation("moe.tlaster:precompose:1.6.1")
-    implementation("moe.tlaster:precompose-viewmodel:1.6.1")
 }
 
 kotlin.sourceSets.all {

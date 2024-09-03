@@ -14,12 +14,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
@@ -44,11 +43,8 @@ import com.cmota.unsplash.ui.components.AddImagePreview
 import com.cmota.unsplash.ui.description_search
 import com.cmota.unsplash.ui.ic_search
 import com.cmota.unsplash.ui.search_hint
-import com.cmota.unsplash.ui.theme.colorAccent
 import com.cmota.unsplash.ui.theme.colorContent20Transparency
 import com.cmota.unsplash.ui.theme.colorContent85Transparency
-import com.cmota.unsplash.ui.theme.colorContentSecondary
-import com.cmota.unsplash.ui.theme.colorPrimary
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -102,13 +98,12 @@ fun AddSearchField(
           .onFocusChanged {
             focused.value = it.isFocused
           },
-        textStyle = typography.h4,
+        textStyle = typography.displaySmall,
         placeholder = {
             Text(
                 text = stringResource(Res.string.search_hint),
-                style = typography.h4,
-                fontFamily = FontFamily(Font(Res.font.big_noodle_titling)),
-                color = colorAccent
+                style = typography.displaySmall,
+                fontFamily = FontFamily(Font(Res.font.big_noodle_titling))
             )
         },
         leadingIcon = {
@@ -118,13 +113,6 @@ fun AddSearchField(
                 modifier = Modifier.size(30.dp)
             )
         },
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = colorPrimary,
-            unfocusedBorderColor = colorAccent,
-            leadingIconColor = colorAccent,
-            cursorColor = colorAccent,
-            textColor = colorAccent
-        ),
         keyboardOptions = KeyboardOptions.Default.copy(
             imeAction = ImeAction.Done
         ),
@@ -155,7 +143,6 @@ fun AddUnsplashImage(image: Image) {
               .fillMaxWidth()
               .height(200.dp)
               .clip(RoundedCornerShape(8.dp))
-              .background(color = colorContentSecondary)
         )
 
         val verticalGradientBrush = Brush.verticalGradient(
@@ -179,18 +166,16 @@ fun AddUnsplashImage(image: Image) {
 
                 Text(
                     text = image.description ?: "",
-                    style = typography.h1,
-                    fontFamily = FontFamily(Font(Res.font.big_noodle_titling)),
-                    color = colorAccent
+                    style = typography.displayLarge,
+                    fontFamily = FontFamily(Font(Res.font.big_noodle_titling))
                 )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
                     text = image.user.username,
-                    style = typography.h2,
+                    style = typography.displayMedium,
                     fontFamily = FontFamily(Font(Res.font.big_noodle_titling)),
-                    color = colorAccent,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
