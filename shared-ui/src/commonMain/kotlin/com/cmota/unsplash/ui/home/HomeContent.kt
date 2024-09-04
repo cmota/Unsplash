@@ -45,6 +45,8 @@ import com.cmota.unsplash.ui.ic_search
 import com.cmota.unsplash.ui.search_hint
 import com.cmota.unsplash.ui.theme.colorContent20Transparency
 import com.cmota.unsplash.ui.theme.colorContent85Transparency
+import com.cmota.unsplash.ui.theme.lightPrimary
+import com.cmota.unsplash.ui.theme.lightSurface
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -167,7 +169,8 @@ fun AddUnsplashImage(image: Image) {
                 Text(
                     text = image.description ?: "",
                     style = typography.displayLarge,
-                    fontFamily = FontFamily(Font(Res.font.big_noodle_titling))
+                    fontFamily = FontFamily(Font(Res.font.big_noodle_titling)),
+                    color = lightSurface
                 )
 
                 Spacer(modifier = Modifier.height(4.dp))
@@ -177,7 +180,8 @@ fun AddUnsplashImage(image: Image) {
                     style = typography.displayMedium,
                     fontFamily = FontFamily(Font(Res.font.big_noodle_titling)),
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    color = lightSurface
                 )
             }
         }

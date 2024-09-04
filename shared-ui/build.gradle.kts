@@ -28,20 +28,13 @@ kotlin {
     }
 
     listOf(
-        iosX64("uikitX64"),
-        iosArm64("uikitArm64"),
-    ).forEach {
-        it.binaries {
-            executable {
-                entryPoint = "main"
-                freeCompilerArgs += listOf(
-                    "-linker-option", "-framework", "-linker-option", "Metal",
-                    "-linker-option", "-framework", "-linker-option", "CoreText",
-                    "-linker-option", "-framework", "-linker-option", "CoreGraphics"
-                )
-                // TODO: the current compose binary surprises LLVM, so disable checks for now.
-                freeCompilerArgs += "-Xdisable-phases=VerifyBitcode"
-            }
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "SharedUI"
+            isStatic = true
         }
     }
 
@@ -77,13 +70,15 @@ kotlin {
         val desktopMain by getting {
             dependsOn(commonMain)
         }
-        val uikitX64Main by getting
-        val uikitArm64Main by getting
-        val uikitMain by creating {
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
             dependsOn(commonMain)
 
-            uikitX64Main.dependsOn(this)
-            uikitArm64Main.dependsOn(this)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
         val wasmJsMain by getting {
             dependencies {
