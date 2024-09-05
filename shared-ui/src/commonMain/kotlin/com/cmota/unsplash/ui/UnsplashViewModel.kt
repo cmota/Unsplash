@@ -1,13 +1,13 @@
 package com.cmota.unsplash.ui
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.cmota.unsplash.ServiceLocator
 import com.cmota.unsplash.data.model.Image
 import com.cmota.unsplash.domain.cb.UnsplashData
 import com.cmota.unsplash.platform.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import moe.tlaster.precompose.viewmodel.ViewModel
-import moe.tlaster.precompose.viewmodel.viewModelScope
 
 const val TAG = "UnsplashViewModel"
 

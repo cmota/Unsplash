@@ -54,8 +54,7 @@ kotlin {
 
                 api("org.jetbrains.compose.material3.adaptive:adaptive-layout:1.0.0-alpha01")
 
-                api("moe.tlaster:precompose:1.6.1")
-                api("moe.tlaster:precompose-viewmodel:1.6.1")
+                api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
 
                 api("io.github.qdsfdhvh:image-loader:1.8.3")
 
